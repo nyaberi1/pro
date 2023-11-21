@@ -4,7 +4,7 @@
 
 ----------------------------------------------------------------------------- */
 .hero-bg {
-  background-image: url(../img/hero-bg.jpg);
+  background-image: url(../img/graduation.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -25,7 +25,8 @@
   z-index: 1;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -167,7 +168,8 @@ input[type="submit"] {
   }
 }
 
-div.owl-controls, .owl-controls div {
+div.owl-controls,
+.owl-controls div {
   height: auto;
   top: 50%;
   color: $primary-color;
