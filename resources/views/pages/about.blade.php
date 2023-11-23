@@ -9,7 +9,7 @@
     content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
   <!-- title -->
-  <title>About</title>
+  <title>Pionneer International Unversity</title>
 
   <!-- favicon -->
   <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">

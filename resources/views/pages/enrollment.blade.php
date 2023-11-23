@@ -9,8 +9,7 @@
     content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
   <!-- title -->
-  <title>Enrollment</title>
-
+  <title>Pionneer International Unversity</title>
   <!-- favicon -->
   <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
   <!-- google font -->
@@ -140,36 +139,95 @@
     <div class="container">
       <div class="row">
         <div class="">
-          <div class="form-title">
+          <div class="form-title content-center">
             <h2>Fill the Form</h2>
           </div>
           <div>
-            <form action="" method="POst">
-              <label for="name">Name</label>
-              <input type="text" placeholder="Enter your Name" name="name" id="name"><br>
-              <label for="email">Email</label>
-              <input type="email" placeholder="Enter your Email" name="email" id="email"><br>
-              <label for="pnumber">Phone Number</label>
-              <input type="tel" placeholder="Enter your Phone number" name="phone" id="phone"><br>
-              <label for="id">ID Number</label>
-              <input type="text" placeholder="id number" name="phone" id="phone"><br>
-              <label for="gender">Gender</label>
-              <input type="radio" name="gender" value="male"> Male
-              <input type="radio" name="gender" value="female"> Female <br>
-              <label for="country">Country</label>
-              <input type="text" name="country " placeholder="n" id="country">br
-              <label for="county">County</label>
-              <input type="text" name="county " id="county">
+            <form action="" method="POST">
+
+              <fieldset class="border-collapse">
+                <label for="name">Name</label><br>
+                <input type="text" placeholder="Enter your Name" name="name" id="name"><br>
+
+                <label for="email">Email</label> <br>
+                <input type="email" placeholder="Enter your Email" name="email" id="email"><br>
+
+                <label for="regno">Registration Number</label><br>
+                <input type="text" name="regno" id="" placeholder="Enter your registration Number"> <br>
+
+                <label for="pnumber">Phone Number</label><br>
+                <input type="tel" placeholder="Enter your Phone number" name="phone" id="phone"><br>
+
+                <label for="id">ID Number</label><br>
+                <input type="text" placeholder="Enter ID number" name="idno" id="id"><br>
+
+                <label for="gender">Gender</label> <br>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female <br>
+
+                <label for="country">Country</label> <br>
+                <input type="text" name="country " placeholder="Enter your Country" id="country"> <br>
+
+                <label for="county">County</label> <br>
+                <input type="text" name="county" placeholder="Enter your County" id="county"> <br>
+
+                <label for="level">Level of Study</label> <br>
+                <input type="checkbox" name="level" value="Degree"> Degree
+                <input type="checkbox" name="level" value="Diploma"> Diploma
+                <input type="checkbox" name="level" value="certificate"> Certificate
+                <br>
+
+                <label for="Faculty">Choose your Faculty</label><br>
+                <select name="faculty" id="faculty">
+                  <option value="BIT">BIT</option>
+                  <option value="BCOM">BCOM</option>
+                  <option value="BAIR">BAIR</option>
+                  <option value="BAIR">BAIR</option>
+                </select> <br>
+
+                <label for="course_d">Course Duration</label><br>
+                <input type="radio" name="course_d" value="4y"> 4years
+                <input type="radio" name="course_d" value="3y"> 3years
+                <input type="radio" name="course_d" value="iy"> 1year <br>
+
+                <label for="yearofenroll">Year of Enrollment</label> <br>
+                <input type="text" name="yearofenroll" placeholder="Enter year of Enrollment" id="yearofenroll">
+                <br>
+                {{--  <label for="description">Description</label><br>
+              <textarea name="message" id="message" cols="30" rows="10" placeholder="Describe your self"></textarea> --}}
+                <h4>Documents</h4>
+                <p>The Document must be scanned </p>
+
+                <div class="border">
+                  <label for="admletter">Admission Letter</label>
+                  <input type="file" name="admletter" id=""
+                    class="border border-gray-200 rounded p-2 w-full"> <br>
+
+                  <label for="passport">Passport</label>
+                  <input type="file" class="border border-gray-200 rounded p-2 w-full" name="passport" /><br>
+
+                  <label for="kcse result slip">KCSE Result Slip</label>
+                  <input type="file" name="resultsslip" id=""
+                    class="border border-gray-200 rounded p-2 w-full"> <br>
+
+                  <label for="kcse living">KCSE Living</label>
+                  <input type="file" name="kcseliving" id=""
+                    class="border border-gray-200 rounded p-2 w-full"> <br>
+
+                  <label for="scannedid">Scanned ID</label>
+                  <input type="file" name="scannedid" id=""
+                    class="border border-gray-200 rounded p-2 w-full"> <br>
+
+                  <label for="birthcert">Birth Certificate</label>
+                  <input type="file" name="birthcert" id=""
+                    class="border border-gray-200 rounded p-2 w-full"> <br>
+                </div>
 
 
+                <button class="bg-blue-500 transform duration-700 delay-500 hover:to-blue-400 rounded-2xl "
+                  value="Submit">Submit</button>
+              </fieldset>
 
-              <input type="text" placeholder="Subject" name="subject" id="subject"><br>
-
-
-              <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-
-
-              <p><input type="submit" value="Submit"></p>
             </form>
           </div>
         </div>
