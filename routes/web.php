@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EnrollsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PagesController::class,'home'])->name('home');
-Route::get('/about', [PagesController::class,'about'])->name('about');
-Route::get('/contact', [PagesController::class,'contact'])->name('contact');
-Route::get('/enrollment', [PagesController::class,'enrollment'])->name('enrollment');
+Route::get('/enrolls', [EnrollsController::class, 'index'])->name('/enrolls');
+Route::post('/enrolls/store', [EnrollsController::class, 'store'])->name('/enrollslists/store');
+Route::post('/enrolls/{enroll}/edit', [EnrollsController::class, 'edit'])->name('/enrolls/{enroll}/edit');
+Route::post('/enrolls/{enroll}/destroy', [EnrollsController::class, 'destroy'])->name('/enrolls/{enroll}/destroy');
+
+
+Route::get('/', [PagesController::class, 'home'])->name('home');
+Route::get('/about', [PagesController::class, 'about'])->name('about');
+Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
+Route::get('/enrollment', [PagesController::class, 'enrollment'])->name('enrollment');
 
 
 
@@ -42,4 +49,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

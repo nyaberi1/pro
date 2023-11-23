@@ -143,38 +143,86 @@
             <h2>Fill the Form</h2>
           </div>
           <div>
-            <form action="" method="POST">
+            <form action="{{ route('/enrollslists/store') }}" method="POST">
+              @csrf
 
               <fieldset class="border-collapse">
                 <label for="name">Name</label><br>
-                <input type="text" placeholder="Enter your Name" name="name" id="name"><br>
+                <input type="text" placeholder="Enter your Name" name="name" id="name">
+                <span>
+                  @error('name')
+                    {{ $message }}
+                  @enderror
+                </span>
+                <br>
 
                 <label for="email">Email</label> <br>
-                <input type="email" placeholder="Enter your Email" name="email" id="email"><br>
+                <input type="email" placeholder="Enter your Email" name="email" id="email">
+                <span>
+                  @error('email')
+                    {{ $message }}
+                  @enderror
+                </span><br>
 
                 <label for="regno">Registration Number</label><br>
-                <input type="text" name="regno" id="" placeholder="Enter your registration Number"> <br>
+                <input type="text" name="regno" id="" placeholder="Enter your registration Number">
+                <span>
+                  @error('regno')
+                    {{ $message }}
+                  @enderror
+                </span><br>
 
                 <label for="pnumber">Phone Number</label><br>
-                <input type="tel" placeholder="Enter your Phone number" name="phone" id="phone"><br>
+                <input type="tel" placeholder="Enter your Phone number" name="phone" id="phone">
+                <span>
+                  @error('phone')
+                    {{ $message }}
+                  @enderror
+                </span><br>
 
                 <label for="id">ID Number</label><br>
-                <input type="text" placeholder="Enter ID number" name="idno" id="id"><br>
+                <input type="text" placeholder="Enter ID number" name="idno" id="id">
+                <span>
+                  @error('idno')
+                    {{ $message }}
+                  @enderror
+                </span><br>
 
                 <label for="gender">Gender</label> <br>
                 <input type="radio" name="gender" value="male"> Male
-                <input type="radio" name="gender" value="female"> Female <br>
+                <input type="radio" name="gender" value="female"> Female
+                <span>
+                  @error('gender')
+                    {{ $message }}
+                  @enderror
+                </span>
+                <br>
 
-                <label for="country">Country</label> <br>
-                <input type="text" name="country " placeholder="Enter your Country" id="country"> <br>
+                {{-- <label for="country">Country</label> <br>
+                <input type="text" name="country " placeholder="Enter your Country" id="country">
+                <span>
+                  @error('country')
+                    {{ $message }}
+                  @enderror
+                </span><br> --}}
 
                 <label for="county">County</label> <br>
-                <input type="text" name="county" placeholder="Enter your County" id="county"> <br>
+                <input type="text" name="county" placeholder="Enter your County" id="county">
+                <span>
+                  @error('county')
+                    {{ $message }}
+                  @enderror
+                </span><br>
 
                 <label for="level">Level of Study</label> <br>
                 <input type="checkbox" name="level" value="Degree"> Degree
                 <input type="checkbox" name="level" value="Diploma"> Diploma
-                <input type="checkbox" name="level" value="certificate"> Certificate
+                <input type="checkbox" name="level" value="Certificate"> Certificate
+                <span>
+                  @error('level')
+                    {{ $message }}
+                  @enderror
+                </span>
                 <br>
 
                 <label for="Faculty">Choose your Faculty</label><br>
@@ -182,45 +230,92 @@
                   <option value="BIT">BIT</option>
                   <option value="BCOM">BCOM</option>
                   <option value="BAIR">BAIR</option>
-                  <option value="BAIR">BAIR</option>
-                </select> <br>
+                  <option value="BEDA">BEDA</option>
+
+                </select>
+                <span>
+                  @error('faculty')
+                    {{ $message }}
+                  @enderror
+                </span><br>
 
                 <label for="course_d">Course Duration</label><br>
                 <input type="radio" name="course_d" value="4y"> 4years
                 <input type="radio" name="course_d" value="3y"> 3years
-                <input type="radio" name="course_d" value="iy"> 1year <br>
+                <input type="radio" name="course_d" value="1y"> 1year
+                <span>
+                  @error('course_d')
+                    {{ $message }}
+                  @enderror
+                </span><br>
 
                 <label for="yearofenroll">Year of Enrollment</label> <br>
                 <input type="text" name="yearofenroll" placeholder="Enter year of Enrollment" id="yearofenroll">
+                <span>
+                  @error('yearofenroll')
+                    {{ $message }}
+                  @enderror
+                </span>
+
                 <br>
                 {{--  <label for="description">Description</label><br>
               <textarea name="message" id="message" cols="30" rows="10" placeholder="Describe your self"></textarea> --}}
                 <h4>Documents</h4>
                 <p>The Document must be scanned </p>
-
                 <div class="border">
                   <label for="admletter">Admission Letter</label>
                   <input type="file" name="admletter" id=""
-                    class="border border-gray-200 rounded p-2 w-full"> <br>
+                    class="border border-gray-200 rounded p-2 w-full">
+                  <span>
+                    @error('admletter')
+                      {{ $message }}
+                    @enderror
+                  </span><br>
+
 
                   <label for="passport">Passport</label>
-                  <input type="file" class="border border-gray-200 rounded p-2 w-full" name="passport" /><br>
+                  <input type="file" class="border border-gray-200 rounded p-2 w-full" name="passport" />
+                  <span>
+                    @error('passport')
+                      {{ $message }}
+                    @enderror
+                  </span><br>
 
                   <label for="kcse result slip">KCSE Result Slip</label>
                   <input type="file" name="resultsslip" id=""
-                    class="border border-gray-200 rounded p-2 w-full"> <br>
+                    class="border border-gray-200 rounded p-2 w-full">
+                  <span>
+                    @error('resultsslip')
+                      {{ $message }}
+                    @enderror
+                  </span> <br>
 
                   <label for="kcse living">KCSE Living</label>
                   <input type="file" name="kcseliving" id=""
-                    class="border border-gray-200 rounded p-2 w-full"> <br>
+                    class="border border-gray-200 rounded p-2 w-full">
+                  <span>
+                    @error('kcseliving')
+                      {{ $message }}
+                    @enderror
+                  </span><br>
 
                   <label for="scannedid">Scanned ID</label>
                   <input type="file" name="scannedid" id=""
-                    class="border border-gray-200 rounded p-2 w-full"> <br>
+                    class="border border-gray-200 rounded p-2 w-full">
+                  <span>
+                    @error('scannedid')
+                      {{ $message }}
+                    @enderror
+                  </span><br>
 
                   <label for="birthcert">Birth Certificate</label>
                   <input type="file" name="birthcert" id=""
-                    class="border border-gray-200 rounded p-2 w-full"> <br>
+                    class="border border-gray-200 rounded p-2 w-full">
+                  <span>
+                    @error('birthcert')
+                      {{ $message }}
+                    @enderror
+                  </span> <br>
                 </div>
 
 

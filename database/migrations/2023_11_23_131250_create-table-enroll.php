@@ -18,18 +18,20 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('regno');
             $table->string('phone');
+            $table->enum('gender', ['male', 'female']);
             $table->string('idno');
-            $table->string('country');
+            // $table->string('country');
             $table->string('county');
-            $table->string('faculty');
-            $table->string('course_d');
+            $table->enum('level', ['Degree', 'Diploma', 'Certificate']);
+            $table->enum('faculty', ['BIT', 'BCOM', 'BAIR', 'BEDA']);
+            $table->enum('course_d', ['4y', '3y', '1y',]);
             $table->string('yearofenroll');
-            $table->string('admletter');
-            $table->string('passport');
-            $table->string('resultsslip');
-            $table->string('kcseliving');
-            $table->string('scannedid');
-            $table->string('birthcert');
+            $table->string('admletter')->nullable(true);
+            $table->string('passport')->nullable(true);
+            $table->string('resultsslip')->nullable(true);
+            $table->string('kcseliving')->nullable(true);
+            $table->string('scannedid')->nullable(true);
+            $table->string('birthcert')->nullable(true);
 
 
 
