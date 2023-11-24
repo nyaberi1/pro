@@ -32,7 +32,7 @@ class EnrollsController extends Controller
      */
     public function create()
     {
-        return view('pages.enrollment');
+        return view('pages.enrollment')->with(compact('title', 'enrolls'));
     }
 
     /**
@@ -111,23 +111,86 @@ class EnrollsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Enroll $enroll)
     {
-        //
+        $enrolls = Enroll::find($enroll);
+        return view('enrolls.editen', compact('enroll'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Enroll $enroll)
     {
-        //
+        $enrolls = Enroll::find($enroll->id);
+        $incomingFields = $request->validate([
+
+            'name' => 'required',
+            'email' => 'required|email',
+            'regno' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+            'idno' => 'required',
+            //'country' => 'required',
+            'county' => 'required',
+            'level' => 'required',
+            'faculty' => 'required',
+            'course_d' => 'required',
+            'yearofenroll' => 'required',
+            /* 'admletter' => 'required', */
+            /*   'passport' => 'required',
+            'resultsslip' => 'required',
+            'kcseliving' => 'required',
+            'scannedid' => 'required',
+            'birthcert' => 'required', */
+
+        ]);
+
+
+        /*  $path = $request->file('admletter')->store('public' 'stores'); */
+        /* 
+        $path = $request->file('passport')->store('public_stores');
+        $path = $request->file('resultsslip')->store('public_stores');
+        $path = $request->file('kcseliving')->store('public_stores');
+        $path = $request->file('scannedid')->store('public_stores');
+        $path = $request->file('birthcert')->store('public_stores'); */
+
+        $enroll->Enroll::update(
+            [
+                'name' => $request->name,
+                'email' => $request->email,
+                'regno' => $request->regno,
+                'phone' => $request->phone,
+                'gender' => $request->gender,
+                'idno' => $request->idno,
+                //'country' => $request->country,
+                'county' => $request->county,
+                'level' => $request->level,
+                'faculty' => $request->faculty,
+                'course_d' => $request->course_d,
+                'yearofenroll' => $request->yearofenroll,
+                'admletter' => $request->admletter,
+                'passport' => $request->passport,
+                'resultsslip' => $request->resultsslip,
+                'kcseliving' => $request->kcseliving,
+                'scannedid' => $request->scannedid,
+                'birthcert' => $request->birthcert,
+
+            ]
+
+
+        );
+
+
+
+
+        return redirect()->route('/enrolls')->compact('enrolls')->with('message', 'You have been enroll!!!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Enroll $enroll)
     {
         //
     }

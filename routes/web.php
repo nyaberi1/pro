@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/enrolls', [EnrollsController::class, 'index'])->name('/enrolls');
-Route::post('/enrolls/store', [EnrollsController::class, 'store'])->name('/enrollslists/store');
-Route::post('/enrolls/{enroll}/edit', [EnrollsController::class, 'edit'])->name('/enrolls/{enroll}/edit');
-Route::post('/enrolls/{enroll}/destroy', [EnrollsController::class, 'destroy'])->name('/enrolls/{enroll}/destroy');
+Route::get('/enrolls', [EnrollsController::class, 'index'])->name('enrolls');
+Route::post('/enrolls/store', [EnrollsController::class, 'store'])->name('enrolls.store');
+Route::get('/enrolls/{enroll}/edit', [EnrollsController::class, 'edit'])->name('enrolls.edit');
+Route::put('/enrolls/{enroll}/update', [EnrollsController::class, 'update'])->name('enrolls.update');
+Route::post('/enrolls/{enroll}/destroy', [EnrollsController::class, 'destroy'])->name('enrolls.destroy');
 
 
 Route::get('/', [PagesController::class, 'home'])->name('home');

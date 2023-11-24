@@ -143,63 +143,72 @@
             <h2>Fill the Form</h2>
           </div>
           <div>
-            <form action="{{ route('enrolls.store') }}" method="POST">
-              @csrf
+            <form action="{{ route('enrolls.update', $enroll->id) }}" method="POST">
 
+              @csrf
+              @method('PUT')
               <fieldset class="border-collapse">
                 <label for="name">Name</label><br>
                 <input type="text" placeholder="Enter your Name" name="name" id="name"
-                  value="{{ old('name') }}">
+                  value="{{ $enroll->name }}>
                 <span>
                   @error('name')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span>
                 <br>
 
-                <label for="email">Email</label> <br>
+                <label for="email">Email</label>
+                <br>
                 <input type="email" placeholder="Enter your Email" name="email" id="email"
-                  value="{{ old('email') }}">
+                  value="{{ $enroll->email }}>
                 <span>
                   @error('email')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span><br>
 
-                <label for="regno">Registration Number</label><br>
+                <label for="regno">Registration
+                Number</label><br>
                 <input type="text" name="regno" id="" placeholder="Enter your registration Number"
-                  value="{{ old('regno') }}">
+                  value="{{ $enroll->regno }}>
                 <span>
                   @error('regno')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span><br>
 
-                <label for="pnumber">Phone Number</label><br>
+                <label for="pnumber">Phone
+                Number</label><br>
                 <input type="tel" placeholder="Enter your Phone number" name="phone" id="phone"
-                  value="{{ old('phone') }}">
+                  value="{{ $enroll->phone }}>
                 <span>
                   @error('phone')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span><br>
 
-                <label for="id">ID Number</label><br>
-                <input type="text" placeholder="Enter ID number" name="idno" id="id"
-                  value="{{ old('idno') }}">
+                <label for="idno">ID
+                Number</label><br>
+                <input type="text" placeholder="Enter ID number" name="idno" id="idno"
+                  value="{{ $enroll->idno }}>
                 <span>
                   @error('idno')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span><br>
 
-                <label for="gender">Gender</label> <br>
-                <input type="radio" name="gender" value="male" value="{{ old('gender') }}"> Male
-                <input type="radio" name="gender" value="female" value="{{ old('gender') }}"> Female
+                <label for="gender">Gender</label>
+                <br>
+                <input type="radio" name="gender" value="male"
+                  value="{{ $enroll->gender }}> Male
+                <input type="radio" name="gender"
+                  value="female"
+                  value="{{ $enroll->gender }}> Female
                 <span>
                   @error('gender')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span>
                 <br>
 
@@ -211,28 +220,36 @@
                   @enderror
                 </span><br> --}}
 
-                <label for="county">County</label> <br>
+                <label for="county">County</label>
+                <br>
                 <input type="text" name="county" placeholder="Enter your County" id="county"
-                  value="{{ old('county') }}">
+                  value="{{ $enroll->county }}>
                 <span>
                   @error('county')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span><br>
 
-                <label for="level">Level of Study</label> <br>
-                <input type="checkbox" name="level" value="Degree" value="{{ old('level') }}"> Degree
-                <input type="checkbox" name="level" value="Diploma" value="{{ old('level') }}"> Diploma
-                <input type="checkbox" name="level" value="Certificate" value="{{ old('level') }}"> Certificate
+                <label for="level">Level
+                of Study</label> <br>
+                <input type="checkbox" name="level" value="Degree"
+                  value="{{ $enroll->level }}> Degree
+                <input type="checkbox" name="level"
+                  value="Diploma" value="{{ $enroll->level }}> Diploma
+                <input type="checkbox"
+                  name="level" value="Certificate"
+                  value="{{ $enroll->level }}> Certificate
                 <span>
                   @error('level')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span>
                 <br>
 
-                <label for="Faculty">Choose your Faculty</label><br>
-                <select name="faculty" id="faculty" value="{{ old('faculty') }}">
+                <label for="Faculty">Choose
+                your Faculty</label><br>
+                <select name="faculty" id="faculty"
+                  value="{{ $enroll->faculty }}>
                   <option value="BIT">BIT</option>
                   <option value="BCOM">BCOM</option>
                   <option value="BAIR">BAIR</option>
@@ -246,22 +263,27 @@
                 </span><br>
 
                 <label for="course_d">Course Duration</label><br>
-                <input type="radio" name="course_d" value="4y" value="{{ old('course_d') }}"> 4years
-                <input type="radio" name="course_d" value="3y" value="{{ old('course_d') }}"> 3years
-                <input type="radio" name="course_d" value="1y" value="{{ old('course_d') }}"> 1year
+                <input type="radio" name="course_d" value="4y"
+                  value="{{ $enroll->course_d }}> 4years
+                <input type="radio" name="course_d"
+                  value="3y" value="{{ $enroll->course_d }}> 3years
+                <input type="radio"
+                  name="course_d" value="1y"
+                  value="{{ $enroll->course_id }}> 1year
                 <span>
                   @error('course_d')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span><br>
 
-                <label for="yearofenroll">Year of Enrollment</label> <br>
+                <label for="yearofenroll">Year
+                of Enrollment</label> <br>
                 <input type="text" name="yearofenroll" placeholder="Enter year of Enrollment" id="yearofenroll"
-                  value="{{ old('yearofenroll') }}">
+                  value="{{ $enroll->yearofenroll }}>
                 <span>
                   @error('yearofenroll')
-                    {{ $message }}
-                  @enderror
+{{ $message }}
+@enderror
                 </span>
 
                 <br>
@@ -270,73 +292,83 @@
                 <h4>Documents</h4>
                 <p>The Document must be scanned </p>
                 <div class="border">
-                  <label for="admletter">Admission Letter</label>
-                  <input type="file" name="admletter" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('admletter') }}" />
+                <label for="admletter">Admission Letter</label>
+                <input type="file" name="admletter" id=""
+                  class="border border-gray-200 rounded p-2 w-full"
+                  value="{{ $enroll->admletter }}/>
                   <span>
                     @error('admletter')
-                      {{ $message }}
-                    @enderror
+{{ $message }}
+@enderror
                   </span><br>
 
 
                   <label for="passport">Passport</label>
-                  <input type="file" class="border border-gray-200 rounded p-2 w-full" name="passport"
-                    value="{{ old('passport') }}" />
+                <input type="file" class="border border-gray-200 rounded p-2 w-full" name="passport"
+                  value="{{ $enroll->passport }}/>
                   <span>
                     @error('passport')
-                      {{ $message }}
-                    @enderror
+{{ $message }}
+@enderror
                   </span><br>
 
-                  <label for="kcse result slip">KCSE Result Slip</label>
-                  <input type="file" name="resultsslip" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('resultsslip') }}" />
-                  <span>
-                    @error('resultsslip')
-                      {{ $message }}
-                    @enderror
-                  </span> <br>
+                  <label for="kcse
+                  result slip">KCSE Result Slip</label>
+                <input type="file" name="resultsslip" id=""
+                  class="border border-gray-200 rounded p-2 w-full"
+                  value="{{ $enroll->resultsslip }}/>
+                <span>
+                  @error('resultsslip')
+{{ $message }}
+@enderror
+                </span> <br>
 
-                  <label for="kcse living">KCSE Living</label>
-                  <input type="file" name="kcseliving" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('kcseliving') }}" />
-                  <span>
-                    @error('kcseliving')
-                      {{ $message }}
-                    @enderror
-                  </span><br>
+                <label for="kcse
+                  living">KCSE Living</label>
+                <input type="file" name="kcseliving" id=""
+                  class="border border-gray-200 rounded p-2 w-full"
+                  value="{{ $enroll->kcseliving }}/>
+                <span>
+                  @error('kcseliving')
+{{ $message }}
+@enderror
+                </span><br>
 
-                  <label for="scannedid">Scanned ID</label>
-                  <input type="file" name="scannedid" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('scannedid') }}">
-                  <span>
-                    @error('scannedid')
-                      {{ $message }}
-                    @enderror
-                  </span><br>
+                <label for="scannedid">Scanned
+                ID</label>
+                <input type="file" name="scannedid" id=""
+                  class="border border-gray-200 rounded p-2 w-full"
+                  value="{{ $enroll->scannedid }}>
+                <span>
+                  @error('scannedid')
+{{ $message }}
+@enderror
+                </span><br>
 
-                  <label for="birthcert">Birth Certificate</label>
-                  <input type="file" name="birthcert" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('birthcert') }}">
-                  <span>
-                    @error('birthcert')
-                      {{ $message }}
-                    @enderror
-                  </span> <br>
-                </div>
-
-
-                <button class="bg-blue-500 transform duration-700 delay-500 hover:to-blue-400 rounded-2xl "
-                  value="Submit">Submit</button>
-              </fieldset>
-
-            </form>
+                <label for="birthcert">Birth
+                Certificate</label>
+                <input type="file" name="birthcert" id=""
+                  class="border border-gray-200 rounded p-2 w-full"
+                  value="{{ $enroll->birthcert }}>
+                <span>
+                  @error('birthcert')
+{{ $message }}
+@enderror
+                </span> <br>
           </div>
-        </div>
 
+
+          <button class="bg-blue-500
+                  transform duration-700 delay-500 hover:to-blue-400 rounded-2xl "
+            value="Submit">Submit</button>
+          </fieldset>
+
+          </form>
+        </div>
       </div>
+
     </div>
+  </div>
   </div>
   </div>
 

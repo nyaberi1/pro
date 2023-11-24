@@ -1,4 +1,16 @@
+@if (session()->has('message'))
+  <div class="alert alert-success">
+    {{ session()->get('message') }}
+  </div>
+@endif
+
+
+<div>
+  <a href="{{ route('enrollment') }}">Add new</a>
+</div>
+
 <table class="class="border-separate border border-slate-500 ">
+  <caption>The Enrollment List</caption>
 
   <thead>
    <tr>
@@ -20,10 +32,11 @@
     <th>KCSE Living</th>
     <th>Scanned ID</th>
     <th>Birth Certificate</th>
+    <th>Action</th>
    </tr>
   </thead>
   <tbody>
-               @foreach ($enrolls as $enroll)
+                                                  @foreach ($enrolls as $enroll)
   <tr>
     <td>{{ $enroll->name }}</td>
     <td>{{ $enroll->email }}</td>
@@ -43,6 +56,7 @@
     <td>{{ $enroll->kcseliving }}</td>
     <td>{{ $enroll->scannedid }}</td>
     <td>{{ $enroll->birthcert }}</td>
+    <td><a href="{{ route('enrolls.edit', $enroll->id) }}">Edit</a></td>
 
   </tr>
   @endforeach
