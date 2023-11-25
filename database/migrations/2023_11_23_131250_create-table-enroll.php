@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('county');
             $table->enum('level', ['Degree', 'Diploma', 'Certificate']);
             $table->enum('faculty', ['BIT', 'BCOM', 'BAIR', 'BEDA']);
-            $table->enum('course_d', ['4y', '3y', '1y',]);
+            $table->enum('course_d', ['4y', '3y', '1y']);
             $table->string('yearofenroll');
             $table->string('admletter')->nullable(true);
             $table->string('passport')->nullable(true);
@@ -32,8 +32,6 @@ return new class extends Migration
             $table->string('kcseliving')->nullable(true);
             $table->string('scannedid')->nullable(true);
             $table->string('birthcert')->nullable(true);
-
-
 
             $table->timestamps();
         });

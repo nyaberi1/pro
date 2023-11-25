@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Enroll;
 use Illuminate\Http\Request;
-use Illuminate\Http\Request\validate;
 
 class EnrollsController extends Controller
 {
@@ -12,7 +11,6 @@ class EnrollsController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-
     {
 
         $title = 'Enrollment List';
@@ -62,9 +60,8 @@ class EnrollsController extends Controller
 
         ]);
 
-
         /*  $path = $request->file('admletter')->store('public' 'stores'); */
-        /* 
+        /*
         $path = $request->file('passport')->store('public_stores');
         $path = $request->file('resultsslip')->store('public_stores');
         $path = $request->file('kcseliving')->store('public_stores');
@@ -94,19 +91,14 @@ class EnrollsController extends Controller
 
             ]
 
-
         );
 
-
-
-
-        return redirect()->route('/enrolls')->with('success', 'You have been enroll!!!');
+        return redirect()->route('enrollments')->with('success', 'You have been enroll!!!');
     }
 
     /**
      * Display the specified resource.
      */
-
 
     /**
      * Show the form for editing the specified resource.
@@ -114,6 +106,7 @@ class EnrollsController extends Controller
     public function edit(Enroll $enroll)
     {
         $enrolls = Enroll::find($enroll);
+
         return view('enrolls.editen', compact('enroll'));
     }
 
@@ -146,9 +139,8 @@ class EnrollsController extends Controller
 
         ]);
 
-
         /*  $path = $request->file('admletter')->store('public' 'stores'); */
-        /* 
+        /*
         $path = $request->file('passport')->store('public_stores');
         $path = $request->file('resultsslip')->store('public_stores');
         $path = $request->file('kcseliving')->store('public_stores');
@@ -178,13 +170,9 @@ class EnrollsController extends Controller
 
             ]
 
-
         );
 
-
-
-
-        return redirect()->route('/enrolls')->compact('enrolls')->with('message', 'You have been enroll!!!');
+        return redirect()->route('enrollments')->compact('enrolls')->with('message', 'You have been enroll!!!');
     }
 
     /**
@@ -192,6 +180,10 @@ class EnrollsController extends Controller
      */
     public function destroy(Enroll $enroll)
     {
-        //
+
+        //$enrolls = Enroll::find($enroll->id);
+        $enroll->delete();
+
+        return redirect()->route('enrollsments')->compact('enrolls')->with('message', 'Enrollment delete');
     }
 }

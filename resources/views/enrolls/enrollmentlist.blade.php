@@ -6,7 +6,7 @@
 
 
 <div>
-  <a href="{{ route('enrollment') }}">Add new</a>
+  <a href="{{ route('enrollment') }}" class="border-b-blue-300">Add new</a>
 </div>
 
 <table class="class="border-separate border border-slate-500 ">
@@ -33,10 +33,12 @@
     <th>Scanned ID</th>
     <th>Birth Certificate</th>
     <th>Action</th>
+    <th>Delete</th>
    </tr>
   </thead>
   <tbody>
-                                                  @foreach ($enrolls as $enroll)
+                                                        @foreach ($enrolls as
+  $enroll)
   <tr>
     <td>{{ $enroll->name }}</td>
     <td>{{ $enroll->email }}</td>
@@ -57,6 +59,7 @@
     <td>{{ $enroll->scannedid }}</td>
     <td>{{ $enroll->birthcert }}</td>
     <td><a href="{{ route('enrolls.edit', $enroll->id) }}">Edit</a></td>
+    <td><a href="{{ route('enrolls.delete', $enroll->id) }}">Drop</a></td>
 
   </tr>
   @endforeach
