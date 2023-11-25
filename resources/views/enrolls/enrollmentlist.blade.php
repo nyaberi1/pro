@@ -37,8 +37,7 @@
    </tr>
   </thead>
   <tbody>
-                                                        @foreach ($enrolls as
-  $enroll)
+       @foreach ($enrolls as $enroll)
   <tr>
     <td>{{ $enroll->name }}</td>
     <td>{{ $enroll->email }}</td>
@@ -59,7 +58,15 @@
     <td>{{ $enroll->scannedid }}</td>
     <td>{{ $enroll->birthcert }}</td>
     <td><a href="{{ route('enrolls.edit', $enroll->id) }}">Edit</a></td>
-    <td><a href="{{ route('enrolls.delete', $enroll->id) }}">Drop</a></td>
+    {{-- <td><a href="{{ route('enrolls.delete', $enroll->id) }}">Drop</a></td>
+     --}}
+    <td>
+      <form action="{{ route('enrolls.delete', $enroll->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button>Delete</button>
+      </form>
+    </td>
 
   </tr>
   @endforeach

@@ -51,7 +51,7 @@ class EnrollsController extends Controller
             'faculty' => 'required',
             'course_d' => 'required',
             'yearofenroll' => 'required',
-            /* 'admletter' => 'required', */
+            /*'admletter' => 'required', */
             /*   'passport' => 'required',
             'resultsslip' => 'required',
             'kcseliving' => 'required',
@@ -93,7 +93,7 @@ class EnrollsController extends Controller
 
         );
 
-        return redirect()->route('enrollments')->with('success', 'You have been enroll!!!');
+        return redirect()->route('enrolls')->with('success', 'You have been enroll!!!');
     }
 
     /**
@@ -105,9 +105,9 @@ class EnrollsController extends Controller
      */
     public function edit(Enroll $enroll)
     {
-        $enrolls = Enroll::find($enroll);
+        //$enrolls = Enroll::find($enroll);
 
-        return view('enrolls.editen', compact('enroll'));
+        return view('enrolls.editen', ['enroll' => $enroll]);
     }
 
     /**
@@ -115,7 +115,7 @@ class EnrollsController extends Controller
      */
     public function update(Request $request, Enroll $enroll)
     {
-        $enrolls = Enroll::find($enroll->id);
+
         $incomingFields = $request->validate([
 
             'name' => 'required',
@@ -172,7 +172,7 @@ class EnrollsController extends Controller
 
         );
 
-        return redirect()->route('enrollments')->compact('enrolls')->with('message', 'You have been enroll!!!');
+        return redirect()->route('enrolls', ['enroll' => $enroll])->compact('enrolls')->with('message', 'You have been enroll!!!');
     }
 
     /**
@@ -184,6 +184,6 @@ class EnrollsController extends Controller
         //$enrolls = Enroll::find($enroll->id);
         $enroll->delete();
 
-        return redirect()->route('enrollsments')->compact('enrolls')->with('message', 'Enrollment delete');
+        return redirect()->route('enrolls', ['enroll' => $enroll])->with('message', 'Enrollment delete');
     }
 }

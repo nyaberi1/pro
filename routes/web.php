@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/enrolls', [EnrollsController::class, 'index'])->name('enrollments');
+Route::get('/enrolls', [EnrollsController::class, 'index'])->name('enrolls');
 Route::post('/enrolls/store', [EnrollsController::class, 'store'])->name('enrolls.store');
 Route::get('/enrolls/{enroll}/edit', [EnrollsController::class, 'edit'])->name('enrolls.edit');
-Route::put('/enrolls/{enroll}/update', [EnrollsController::class, 'update'])->name('enrolls.update');
-Route::post('/enrolls/{enroll}/destroy', [EnrollsController::class, 'destroy'])->name('enrolls.delete');
+Route::put('/enrolls/{enroll}', [EnrollsController::class, 'update'])->name('enrolls.update');
+Route::delete('/enrolls/{enroll}', [EnrollsController::class, 'destroy'])->name('enrolls.delete');
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
@@ -41,4 +41,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
