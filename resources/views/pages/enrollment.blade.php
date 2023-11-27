@@ -32,6 +32,7 @@
   <!-- responsive -->
   <link rel="stylesheet" href="assets/css/responsive.css">
 
+  {{-- @vite('resources/css/app.css') --}}
 </head>
 
 <body>
@@ -49,7 +50,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-sm-12 text-center">
-          <div class="main-menu-wrap">
+          <div class="main-menu-wrap ">
             <!-- logo -->
             <div class="site-logo">
               <a href="index.html">
@@ -126,7 +127,7 @@
   <div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="col-lg-8 mb-5 mb-lg-0">
           <div class="breadcrumb-text">
             <h1>Enrollment Form</h1>
           </div>
@@ -135,203 +136,308 @@
     </div>
   </div>
 
-  <div class="contact-from-section mt-20 mb-10">
-    <div class="container">
-      <div class="row">
-        <div class="">
+
+
+  <div class="contact-from-section mt-20 mb-10  col-span-2">
+    <div class="container ">
+      <div class="row ">
+        {{--  <div class="text-auto "> --}}
+        <div>
           <div class="form-title content-center">
             <h2>Fill the Form</h2>
           </div>
-          <div>
-            <form action="{{ route('enrolls.store') }}" method="POST">
-              @csrf
-
-              <fieldset class="border-collapse">
-                <label for="name">Name</label><br>
-                <input type="text" placeholder="Enter your Name" name="name" id="name"
-                  value="{{ old('name') }}">
-                <span>
-                  @error('name')
-                    {{ $message }}
-                  @enderror
-                </span>
-                <br>
-
-                <label for="email">Email</label> <br>
-                <input type="email" placeholder="Enter your Email" name="email" id="email"
-                  value="{{ old('email') }}">
-                <span>
-                  @error('email')
-                    {{ $message }}
-                  @enderror
-                </span><br>
-
-                <label for="regno">Registration Number</label><br>
-                <input type="text" name="regno" id="" placeholder="Enter your registration Number"
-                  value="{{ old('regno') }}">
-                <span>
-                  @error('regno')
-                    {{ $message }}
-                  @enderror
-                </span><br>
-
-                <label for="pnumber">Phone Number</label><br>
-                <input type="tel" placeholder="Enter your Phone number" name="phone" id="phone"
-                  value="{{ old('phone') }}">
-                <span>
-                  @error('phone')
-                    {{ $message }}
-                  @enderror
-                </span><br>
-
-                <label for="id">ID Number</label><br>
-                <input type="text" placeholder="Enter ID number" name="idno" id="id"
-                  value="{{ old('idno') }}">
-                <span>
-                  @error('idno')
-                    {{ $message }}
-                  @enderror
-                </span><br>
-
-                <label for="gender">Gender</label> <br>
-                <input type="radio" name="gender" value="male" value="{{ old('gender') }}"> Male
-                <input type="radio" name="gender" value="female" value="{{ old('gender') }}"> Female
-                <span>
-                  @error('gender')
-                    {{ $message }}
-                  @enderror
-                </span>
-                <br>
-
-                {{-- <label for="country">Country</label> <br>
-                <input type="text" name="country " placeholder="Enter your Country" id="country">
-                <span>
-                  @error('country')
-                    {{ $message }}
-                  @enderror
-                </span><br> --}}
-
-                <label for="county">County</label> <br>
-                <input type="text" name="county" placeholder="Enter your County" id="county"
-                  value="{{ old('county') }}">
-                <span>
-                  @error('county')
-                    {{ $message }}
-                  @enderror
-                </span><br>
-
-                <label for="level">Level of Study</label> <br>
-                <input type="checkbox" name="level" value="Degree" value="{{ old('level') }}"> Degree
-                <input type="checkbox" name="level" value="Diploma" value="{{ old('level') }}"> Diploma
-                <input type="checkbox" name="level" value="Certificate" value="{{ old('level') }}"> Certificate
-                <span>
-                  @error('level')
-                    {{ $message }}
-                  @enderror
-                </span>
-                <br>
-
-                <label for="Faculty">Choose your Faculty</label><br>
-                <select name="faculty" id="faculty" value="{{ old('faculty') }}">
-                  <option value="BIT">BIT</option>
-                  <option value="BCOM">BCOM</option>
-                  <option value="BAIR">BAIR</option>
-                  <option value="BEDA">BEDA</option>
-
-                </select>
-                <span>
-                  @error('faculty')
-                    {{ $message }}
-                  @enderror
-                </span><br>
-
-                <label for="course_d">Course Duration</label><br>
-                <input type="radio" name="course_d" value="4y" value="{{ old('course_d') }}"> 4years
-                <input type="radio" name="course_d" value="3y" value="{{ old('course_d') }}"> 3years
-                <input type="radio" name="course_d" value="1y" value="{{ old('course_d') }}"> 1year
-                <span>
-                  @error('course_d')
-                    {{ $message }}
-                  @enderror
-                </span><br>
-
-                <label for="yearofenroll">Year of Enrollment</label> <br>
-                <input type="text" name="yearofenroll" placeholder="Enter year of Enrollment" id="yearofenroll"
-                  value="{{ old('yearofenroll') }}">
-                <span>
-                  @error('yearofenroll')
-                    {{ $message }}
-                  @enderror
-                </span>
-
-                <br>
-                {{--  <label for="description">Description</label><br>
-              <textarea name="message" id="message" cols="30" rows="10" placeholder="Describe your self"></textarea> --}}
-                <h4>Documents</h4>
-                <p>The Document must be scanned </p>
-                <div class="border">
-                  <label for="admletter">Admission Letter</label>
-                  <input type="file" name="admletter" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('admletter') }}" />
-                  <span>
-                    @error('admletter')
-                      {{ $message }}
-                    @enderror
-                  </span><br>
 
 
-                  <label for="passport">Passport</label>
-                  <input type="file" class="border border-gray-200 rounded p-2 w-full" name="passport"
-                    value="{{ old('passport') }}" />
-                  <span>
-                    @error('passport')
-                      {{ $message }}
-                    @enderror
-                  </span><br>
+          <div class="flex flex-row w-full justify-center pt-4 pb-4">
+            <div class="card bg-base-500 shadow-xl p-4 px-5 justify-center">
 
-                  <label for="kcse result slip">KCSE Result Slip</label>
-                  <input type="file" name="resultsslip" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('resultsslip') }}" />
-                  <span>
-                    @error('resultsslip')
-                      {{ $message }}
-                    @enderror
-                  </span> <br>
 
-                  <label for="kcse living">KCSE Living</label>
-                  <input type="file" name="kcseliving" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('kcseliving') }}" />
-                  <span>
-                    @error('kcseliving')
-                      {{ $message }}
-                    @enderror
-                  </span><br>
 
-                  <label for="scannedid">Scanned ID</label>
-                  <input type="file" name="scannedid" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('scannedid') }}">
-                  <span>
-                    @error('scannedid')
-                      {{ $message }}
-                    @enderror
-                  </span><br>
+              <form action="{{ route('enrolls.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
 
-                  <label for="birthcert">Birth Certificate</label>
-                  <input type="file" name="birthcert" id=""
-                    class="border border-gray-200 rounded p-2 w-full" value="{{ old('birthcert') }}">
-                  <span>
-                    @error('birthcert')
-                      {{ $message }}
-                    @enderror
-                  </span> <br>
+                <div class="space-y-12">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" class="form-control" id="name"
+                      placeholder="Enter your Name" value="{{ old('name') }}">
+                    <span>
+                      @error('name')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                      placeholder="Enter your Email" value="{{ old('email') }}">
+                    <span>
+                      @error('email')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label for="regno" class="form-label">Registration Number</label>
+                    <input type="text" class="form-control" name="regno" id="regno"
+                      placeholder="Enter your Name" value="{{ old('regno') }}">
+                    <span>
+                      @error('regno')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" name="phone" id="phone"
+                      placeholder="Enter your Name" value="{{ old('phone') }}">
+                    <span>
+                      @error('phone')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label for="idno" class="form-label">ID Number</label>
+                    <input type="text" class="form-control" name="idno" id="idno"
+                      placeholder="Enter your Name" value="{{ old('idno') }}">
+                    <span>
+                      @error('idno')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+
+
+                  <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" name="gender" type="checkbox" value="male">
+                      <label class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="gender" value="female">
+                      <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                    </div>
+                    <span>
+                      @error('gender')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" class="form-control" name="country" id="country"
+                      placeholder="Enter your Name" value="{{ old('country') }}">
+                    <span>
+                      @error('country')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+
+                  <div class="mb-3">
+                    <label for="county" class="form-label">County</label>
+                    <input type="text" class="form-control" name="county" id="county"
+                      placeholder="Enter your Name" value="{{ old('county') }}">
+                    <span>
+                      @error('county')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+
+                  <div class="mb-3">
+                    <label for="level" class="form-label">Level of Study</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" name="level" type="checkbox" value="master">
+                      <label class="form-check-label" for="masters">Masters</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="level" value="degree"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="degree">Degree</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="level" value="diploma"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="diploma">Diploma</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="level" value="certificate"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="certificate">Certificate</label>
+                    </div>
+                    <span>
+                      @error('level')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="faculty" class="form-label">Choose of Faculty</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" name="faculty" type="checkbox" value="bit"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="bit">BIT</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="faculty" value="bcom"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="bcom">BCOM</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="faculty" value="bair"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="bair">BAIR</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="faculty" value="beda"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="beda">BEDA</label>
+                    </div>
+                    <span>
+                      @error('faculty')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+
+
+                  <div class="mb-3">
+                    <label for="faculty" class="form-label">Course Duration</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" name="course_d" type="checkbox" value="4y"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="4y">4 Years</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="course_d" value="3y"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="3y">3 Years</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="course_d" value="1y"
+                        onclick="onlyOne(this)">
+                      <label class="form-check-label" for="1y">1 Year</label>
+                    </div>
+                    <span>
+                      @error('course_d')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+
+                  <div class="mb-3">
+                    <label for="yearofenroll" class="form-label">Year of Enrollment</label>
+                    <input type="text" class="form-control" name="yearofenroll" placeholder="Enter your Name"
+                      value="{{ old('yearofenroll') }}">
+                    <span>
+                      @error('yearofenroll')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+
+
+
+                  <div class="mb-3">
+                    <label for="admletter" class="form-label">Admission Letter</label>
+                    <input class="form-control form-control-lg" name="admletter" type="file"
+                      value="{{ old('admletter') }}">
+                    <span>
+                      @error('admletter')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="passport" class="form-label">Passport</label>
+                    <input class="form-control form-control-lg" name="passport" type="file"
+                      value="{{ old('passport') }}">
+                    <span>
+                      @error('passport')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+                  <div class="mb-3">
+                    <label for="resultsslip" class="form-label">KSCE Result Slip</label>
+                    <input class="form-control form-control-lg" name="resultsslip" type="file"
+                      value="{{ old('resultsslip') }}">
+                    <span>
+                      @error('resultsslip')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+
+
+
+                  <div class="mb-3">
+                    <label for="kcseliving" class="form-label">KSCE Living</label>
+                    <input class="form-control form-control-lg" name="kcseliving" type="file"
+                      value="{{ old('kcseliving') }}">
+                    <span>
+                      @error('kcseliving')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="scannedid" class="form-label">Scanned ID</label>
+                    <input class="form-control form-control-lg" name="scannedid" type="file"
+                      value="{{ old('scannedid') }}">
+                    <span>
+                      @error('scannedid')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="birthcert" class="form-label">BIrth Certificate</label>
+                    <input class="form-control form-control-lg" id="formFileLg" name="birthcert" type="file"
+                      value="{{ old('birthcert') }}">
+                    <span>
+                      @error('birthcert')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+
+                  <input type="submit" class="pt-2" name="submit" id="submit">
                 </div>
 
-
-                <button class="bg-blue-500 transform duration-700 delay-500 hover:to-blue-400 rounded-2xl "
-                  value="Submit">Submit</button>
-              </fieldset>
-
-            </form>
+              </form>
+            </div>
           </div>
         </div>
 
@@ -432,7 +538,7 @@
   <!-- sticker js -->
   <script src="assets/js/sticker.js"></script>
   <!-- form validation js -->
-  <script src="assets/js/form-validate.js"></script>
+  {{-- <script src="assets/js/form-validate.js"></script> --}}
   <!-- main js -->
   <script src="assets/js/main.js"></script>
 

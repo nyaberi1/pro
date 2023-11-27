@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('phone');
             $table->enum('gender', ['male', 'female']);
             $table->string('idno');
-            // $table->string('country');
+            $table->string('country');
             $table->string('county');
-            $table->enum('level', ['Degree', 'Diploma', 'Certificate']);
-            $table->enum('faculty', ['BIT', 'BCOM', 'BAIR', 'BEDA']);
+            $table->enum('level', ['masters', 'degree', 'diploma', 'certificate']);
+            $table->enum('faculty', ['bit', 'bcom', 'bair', 'beda']);
             $table->enum('course_d', ['4y', '3y', '1y']);
             $table->string('yearofenroll');
             $table->string('admletter')->nullable(true);

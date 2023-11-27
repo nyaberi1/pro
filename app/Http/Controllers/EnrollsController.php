@@ -14,7 +14,7 @@ class EnrollsController extends Controller
     {
 
         $title = 'Enrollment List';
-        $enrolls = Enroll::get();
+        $enrolls = Enroll::paginate();
 
         return view('enrolls.enrollmentlist')->with(compact('title', 'enrolls'));
     }
@@ -45,30 +45,31 @@ class EnrollsController extends Controller
             'phone' => 'required',
             'gender' => 'required',
             'idno' => 'required',
-            //'country' => 'required',
+            'country' => 'required',
             'county' => 'required',
             'level' => 'required',
             'faculty' => 'required',
             'course_d' => 'required',
             'yearofenroll' => 'required',
-            /*'admletter' => 'required', */
-            /*   'passport' => 'required',
-            'resultsslip' => 'required',
-            'kcseliving' => 'required',
-            'scannedid' => 'required',
-            'birthcert' => 'required', */
-
+            'admletter' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'passport' => 'required|file|mimes:pdf,img,png|max:2048',
+            'resultsslip' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'kcseliving' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'scannedid' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'birthcert' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ]);
+        $path = $request->file('admletter')->store('admission_letters');
+        $path = $request->file('passport')->store('passports');
+        $path = $request->file('resultsslip')->store('results_slips');
+        $path = $request->file('kcseliving')->store('kcse_livings');
+        $path = $request->file('scannedid')->store('scanned_ids');
+        $path = $request->file('birthcert')->store('birth_certificates');
 
-        /*  $path = $request->file('admletter')->store('public' 'stores'); */
-        /*
-        $path = $request->file('passport')->store('public_stores');
-        $path = $request->file('resultsslip')->store('public_stores');
-        $path = $request->file('kcseliving')->store('public_stores');
-        $path = $request->file('scannedid')->store('public_stores');
-        $path = $request->file('birthcert')->store('public_stores'); */
+        $enroll = Enroll::create($incomingFields)->file_path = $path;
 
-        Enroll::create(
+
+
+        /*  Enroll::create(
             [
                 'name' => $request->name,
                 'email' => $request->email,
@@ -76,7 +77,7 @@ class EnrollsController extends Controller
                 'phone' => $request->phone,
                 'gender' => $request->gender,
                 'idno' => $request->idno,
-                //'country' => $request->country,
+                'country' => $request->country,
                 'county' => $request->county,
                 'level' => $request->level,
                 'faculty' => $request->faculty,
@@ -91,9 +92,9 @@ class EnrollsController extends Controller
 
             ]
 
-        );
+        ); */
 
-        return redirect()->route('enrolls')->with('success', 'You have been enroll!!!');
+        return redirect()->route('home')->with('messsage', 'You have been enroll!!!');
     }
 
     /**
@@ -124,55 +125,45 @@ class EnrollsController extends Controller
             'phone' => 'required',
             'gender' => 'required',
             'idno' => 'required',
-            //'country' => 'required',
+            'country' => 'required',
             'county' => 'required',
             'level' => 'required',
             'faculty' => 'required',
             'course_d' => 'required',
             'yearofenroll' => 'required',
-            /* 'admletter' => 'required', */
-            /*   'passport' => 'required',
-            'resultsslip' => 'required',
-            'kcseliving' => 'required',
-            'scannedid' => 'required',
-            'birthcert' => 'required', */
-
+            /*        'admletter' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'passport' => 'required|file|mimes:pdf,img,png|max:2048',
+            'resultsslip' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'kcseliving' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'scannedid' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'birthcert' => 'required|file|mimes:pdf,doc,docx|max:2048',
+ */
         ]);
+        /* $path = $request->file('admletter')->store('admission_letters');
+        $path = $request->file('passport')->store('passports');
+        $path = $request->file('resultsslip')->store('results_slips');
+        $path = $request->file('kcseliving')->store('kcse_livings');
+        $path = $request->file('scannedid')->store('scanned_ids');
+        $path = $request->file('birthcert')->store('birth_certificates');
+ */
 
-        /*  $path = $request->file('admletter')->store('public' 'stores'); */
-        /*
-        $path = $request->file('passport')->store('public_stores');
-        $path = $request->file('resultsslip')->store('public_stores');
-        $path = $request->file('kcseliving')->store('public_stores');
-        $path = $request->file('scannedid')->store('public_stores');
-        $path = $request->file('birthcert')->store('public_stores'); */
+        $enroll = Enroll::find($enroll->id);
+        /*  if ($request->hasFile('file')) {
 
-        $enroll->Enroll::update(
-            [
-                'name' => $request->name,
-                'email' => $request->email,
-                'regno' => $request->regno,
-                'phone' => $request->phone,
-                'gender' => $request->gender,
-                'idno' => $request->idno,
-                //'country' => $request->country,
-                'county' => $request->county,
-                'level' => $request->level,
-                'faculty' => $request->faculty,
-                'course_d' => $request->course_d,
-                'yearofenroll' => $request->yearofenroll,
-                'admletter' => $request->admletter,
-                'passport' => $request->passport,
-                'resultsslip' => $request->resultsslip,
-                'kcseliving' => $request->kcseliving,
-                'scannedid' => $request->scannedid,
-                'birthcert' => $request->birthcert,
+            Storage::delete($enroll->file_path);
 
-            ]
+            // Store the new file in the storage disk
+            $path = $request->file('file')->store('uploads');
 
-        );
+            // Update the file path in the database
+            $upload->file_path = $path;
+        }
+ */
 
-        return redirect()->route('enrolls', ['enroll' => $enroll])->compact('enrolls')->with('message', 'You have been enroll!!!');
+        $enroll->update($incomingFields);
+        $enroll->save();
+
+        return redirect()->route('enrolls', ['enroll' => $enroll])->with('message', 'You have been enroll!!!');
     }
 
     /**
