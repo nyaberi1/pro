@@ -2193,16 +2193,16 @@ a.video-play-btn {
 ----------------------------------------------------------------------------- */
 .feature-bg {
   position: relative;
-  margin: 150px 0;
+  margin: 175px 0;
 }
 
 .feature-bg:after {
-  background-image: url(../img/feature-bg.jpg);
+  background-image: url(../img/bags.jpg);
   position: absolute;
   right: 0;
   top: 0;
-  width: 40%;
-  height: 100%;
+  width: 50%;
+  height: 80%;
   content: "";
   background-size: cover;
   background-position: center;
@@ -2213,19 +2213,19 @@ a.video-play-btn {
 }
 
 .team-bg-1 {
-  background-image: url(../img/team/team-1.jpg);
+  background-image: url(../img/students.jpg);
 }
 
 .team-bg-2 {
-  background-image: url(../img/team/team-2.jpg);
+  background-image: url(../img/bags.jpg);
 }
 
 .team-bg-3 {
-  background-image: url(../img/team/team-3.jpg);
+  background-image: url(../img/students.jpg);
 }
 
 .team-bg-4 {
-  background-image: url(../img/team/team-4.jpg);
+  background-image: url(../img/team/students.jpg);
 }
 
 .team-bg {

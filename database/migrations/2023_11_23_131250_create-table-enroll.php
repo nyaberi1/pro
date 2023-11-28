@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->enum('gender', ['male', 'female']);
             $table->string('idno');
+            $table->string('birthdate');
             $table->string('country');
             $table->string('county');
             $table->enum('level', ['masters', 'degree', 'diploma', 'certificate']);

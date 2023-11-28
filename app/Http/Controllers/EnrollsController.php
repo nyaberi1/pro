@@ -48,6 +48,7 @@ class EnrollsController extends Controller
             'phone' => 'required',
             'gender' => 'required',
             'idno' => 'required',
+            'birthdate' => 'required',
             'country' => 'required',
             'county' => 'required',
             'level' => 'required',
@@ -79,7 +80,7 @@ class EnrollsController extends Controller
 
         $enroll->save();
 
-        return redirect()->route('enrolls')->with('message', 'You have been enrolled successfully!');
+        return redirect()->route('home')->with('message', 'You have been enrolled successfully!');
     }
 
     /**
@@ -110,6 +111,7 @@ class EnrollsController extends Controller
             'phone' => 'required',
             'gender' => 'required',
             'idno' => 'required',
+            'birthdate' => 'required',
             'country' => 'required',
             'county' => 'required',
             'level' => 'required',
@@ -182,7 +184,7 @@ class EnrollsController extends Controller
 
         $enroll->save();
 
-        return redirect()->route('enrolls', ['enroll' => $enroll])->with('message', 'Enrollment has updated successfully!!');
+        return redirect()->route('home', ['enroll' => $enroll])->with('message', 'Enrollment has updated successfully!!');
     }
 
     /**

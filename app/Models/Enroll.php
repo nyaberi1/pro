@@ -16,6 +16,7 @@ class Enroll extends Model
         'phone',
         'gender',
         'idno',
+        'birthdate',
         'country',
         'county',
         'level',

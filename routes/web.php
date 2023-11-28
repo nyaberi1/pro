@@ -16,16 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/enrolls', [EnrollsController::class, 'index'])->name('enrolls');
-Route::post('/enrolls/store', [EnrollsController::class, 'store'])->name('enrolls.store');
-Route::get('/enrolls/{enroll}/edit', [EnrollsController::class, 'edit'])->name('enrolls.edit');
-Route::put('/enrolls/{enroll}', [EnrollsController::class, 'update'])->name('enrolls.update');
-Route::delete('/enrolls/{enroll}', [EnrollsController::class, 'destroy'])->name('enrolls.delete');
+Route::get('/enrolls', [EnrollsController::class, 'index'])->name('enrolls')->middleware('auth');
+Route::post('/enrolls/store', [EnrollsController::class, 'store'])->name('enrolls.store')->middleware('auth');
+Route::get('/enrolls/{enroll}/edit', [EnrollsController::class, 'edit'])->name('enrolls.edit')->middleware('auth');
+Route::put('/enrolls/{enroll}', [EnrollsController::class, 'update'])->name('enrolls.update')->middleware('auth');
+Route::delete('/enrolls/{enroll}', [EnrollsController::class, 'destroy'])->name('enrolls.delete')->middleware('auth');
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
-Route::get('/enrollment', [PagesController::class, 'enrollment'])->name('enrollment');
+Route::get('/enrollment', [PagesController::class, 'enrollment'])->name('enrollment')->middleware('auth');
 //Route::get('/edit', [PagesController::class, 'index'])->name('edit');
 
 /* Route::get('/', function () {

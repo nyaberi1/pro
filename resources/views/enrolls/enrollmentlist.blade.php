@@ -31,6 +31,7 @@
       <div class="alert alert-success">
         {{ session()->get('message') }}
       </div>
+      <meta http-equiv="refresh" content="5">
     @endif
 
 
@@ -50,6 +51,7 @@
           <th class="border border-slate-600 ">Phone Number</th>
           <th class="border border-slate-600 ">Gender </th>
           <th class="border border-slate-600 ">ID number</th>
+          <th class="border border-slate-600 ">Date of Birth</th>
           <th class="border border-slate-600 ">Country</th>
           <th class="border border-slate-600">County</th>
           <th class="border border-slate-600">Level of Study</th>
@@ -77,6 +79,7 @@
             <td class="border border-slate-700 ">{{ $enroll->phone }}</td>
             <td class="border border-slate-700 ">{{ $enroll->gender }}</td>
             <td class="border border-slate-700 ">{{ $enroll->idno }}</td>
+            <td class="border border-slate-700 ">{{ $enroll->birthdate }}</td>
             <td class="border border-slate-700 ">{{ $enroll->country }}</td>
             <td class="border border-slate-700 ">{{ $enroll->county }}</td>
             <td class="border border-slate-700 ">{{ $enroll->level }}</td>

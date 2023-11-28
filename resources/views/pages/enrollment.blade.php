@@ -140,12 +140,12 @@
 
 
 
-  <div class="contact-from-section mt-20 mb-10 col-span-2 flex justify-center items-center mx-auto">
+  <div class="contact-from-section mt-20 mb-10 col-span-2 flex justify-center items-center mx-auto grid-col-0 ">
     <div class="container">
-      <div class="row">
+      <div class="{{-- row --}} grid-flow-dense">
         <div>
-          <div class="form-title content-center">
-            <h2>Fill the Form</h2>
+          <div class="form-title  text-center content-center">
+            <h2>Fill the Enrollment Form</h2>
           </div>
 
           <div class="flex flex-row w-full justify-center pt-4 pb-4">
@@ -298,7 +298,7 @@
                   <div class="mb-3">
                     <label for="faculty" class="form-label">Choose Faculty</label>
                     <select class="form-select" name="faculty">
-                      <option selected>--choose faculty--</option>
+                      <option value="default">--Choose your Faculty--</option>
                       <option value="bit">BIT</option>
                       <option value="bcom">BCOM</option>
                       <option value="bair">BAIR</option>
@@ -453,8 +453,9 @@
         <div class="col-lg-3 col-md-6">
           <div class="footer-box about-widget">
             <h2 class="widget-title">About us</h2>
-            <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              laudantium, totam rem aperiam, eaque ipsa quae.</p>
+            <p>Pioneer International University is a distinguished institution committed to fostering academic
+              excellence, innovation, and global leadership. With a rich history of providing quality education, we
+              empower students to excel in their chosen fields, preparing them for a dynamic and impactful future.</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">

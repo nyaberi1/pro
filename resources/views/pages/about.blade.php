@@ -153,7 +153,7 @@
   <div class="feature-bg">
     <div class="container">
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-6">
           <div class="featured-text">
             <h2 class="pb-3">Why<span class="orange-text"> Pioneer</span></h2>
             <div class="row">
@@ -164,8 +164,8 @@
                   </div>
                   <div class="content">
                     <h3>Learning to Know</h3>
-                    <p>sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo.
-                    </p>
+                    <p>Dedicated to cultivating critical thinking, empowering students for challenges in academics and
+                      professions. </p>
                   </div>
                 </div>
               </div>
@@ -176,7 +176,8 @@
                   </div>
                   <div class="content">
                     <h3>Learning to Be</h3>
-                    <p>sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo.
+                    <p>Fostering support, diverse learning empowers students for personal, professional excellence,
+                      lifelong dedication.
                     </p>
                   </div>
                 </div>
@@ -188,7 +189,8 @@
                   </div>
                   <div class="content">
                     <h3>Leaning to Do</h3>
-                    <p>sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo.
+                    <p> Empowering students through hands-on experiences, real-world projects, and industry training for
+                      practical proficiency.
                     </p>
                   </div>
                 </div>
@@ -200,12 +202,50 @@
                   </div>
                   <div class="content">
                     <h3> Learning to Leave Together</h3>
-                    <p>sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo.
+                    <p>Nurturing a diverse, inclusive community, fostering collaboration, cultural exchange, and a
+                      global mindset.
                     </p>
                   </div>
                 </div>
               </div>
+
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-150">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="section-title">
+            <h3>Our <span class="orange-text">Team</span></h3>
+            <p>Students at various activities within School premises.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="single-team-item">
+            <div class="team-bg team-bg-1"></div>
+            <h4>Students <span>Heading To Lecture</span></h4>
+
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="single-team-item">
+            <div class="team-bg team-bg-2"></div>
+            <h4>Students<span>AT Library</span></h4>
+
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+          <div class="single-team-item">
+            <div class="team-bg team-bg-3"></div>
+            <h4>Student <span>Training</span></h4>
+
           </div>
         </div>
       </div>
@@ -218,8 +258,9 @@
         <div class="col-lg-3 col-md-6">
           <div class="footer-box about-widget">
             <h2 class="widget-title">About us</h2>
-            <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              laudantium, totam rem aperiam, eaque ipsa quae.</p>
+            <p>Pioneer International University is a distinguished institution committed to fostering academic
+              excellence, innovation, and global leadership. With a rich history of providing quality education, we
+              empower students to excel in their chosen fields, preparing them for a dynamic and impactful future.</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -256,6 +297,7 @@
   </div>
 
 
+
   <!-- copyright -->
   <div class="copyright">
     <div class="container">
@@ -265,13 +307,7 @@
         </div>
         <div class="col-lg-6 text-right col-md-12">
           <div class="social-icons">
-            <ul>
-              <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-              <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-            </ul>
+
           </div>
         </div>
       </div>

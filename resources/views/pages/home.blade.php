@@ -37,6 +37,14 @@
 
 <body>
 
+  @if (session()->has('message'))
+    <div class="alert alert-success">
+      {{ session()->get('message') }}
+    </div>
+    <meta http-equiv="refresh" content="5">
+  @endif
+
+
   <!--PreLoader-->
   <div class="loader">
     <div class="loader-inner">
@@ -129,8 +137,9 @@
             <div class="hero-text-tablecell">
               <p class="subtitle">Pioneer International University</p>
               <h1>Your School of Choice</h1>
+              <p></p>
               <div class="hero-btns">
-                <a href="/contact" class="bordered-btn">Contact Us</a>
+                <a href="{{ route('contact') }}" class="bordered-btn">Contact Us</a>
               </div>
             </div>
           </div>
@@ -191,11 +200,80 @@
         <div class="col-lg-8 offset-lg-2 text-center">
           <div class="section-title">
             <h3><span class="orange-text">Our</span> Services</h3>
-            <p>We Offer Quality Education and Affordable to the Society.
+            <h4>We Offer Quality Education and Affordable to the Society.
+            </h4>
+            <p>
+              At Pioneer International University, our commitment to excellence extends to making quality education
+              accessible and affordable to society. We understand the significance of education as a transformative
+              force, and we strive to eliminate financial barriers that may hinder individuals from pursuing their
+              academic goals. Through strategic resource management and financial aid initiatives, we ensure that the
+              cost of education remains reasonable without compromising on the quality of the learning experience. This
+              approach is rooted in our belief that everyone, regardless of their financial background, should have the
+              opportunity to access high-quality education and unlock their full potential. By offering a combination of
+              quality education and affordability, Pioneer International University aims to contribute to the
+              empowerment and advancement of individuals and communities, making a positive impact on society as a
+              whole.
             </p>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="list-section pt-80 pb-80">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div class="list-box d-flex align-items-center">
+            {{--  <div class="list-icon">
+              <i class="fas fa-shipping-fast"></i>
+            </div --}}>
+            <div class="content">
+              <h3>Academic Excellence Programs</h3>
+              <p>At Pioneer International University, our Academic Excellence Programs are designed to provide students
+                with a rigorous and comprehensive education across various disciplines. Our faculty, comprised of
+                experienced professionals in their respective fields, is committed to delivering top-notch education
+                that goes beyond textbooks, fostering critical thinking and problem-solving skills. Through a
+                combination ofntheoretical knowledge and practical application, students engage in a learning experience
+                that prepares them for success in their chosen careers.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div class="list-box d-flex align-items-center">
+            {{-- <div class="list-icon">
+              <i class="fas fa-phone-volume"></i>
+            </div> --}}
+            <div class="content">
+              <h3> Cutting-Edge Technology Integration</h3>
+              <p>Pioneer International University is dedicated to staying at the forefront of educational innovation.
+                Our Cutting-Edge Technology Integration service ensures that students have access to state-of-the-art
+                resources and digital tools that enhance the learning process. From interactive online platforms to
+                virtual laboratories, we leverage technology to create dynamic and engaging educational experiences.
+                This
+                service equips students with the digital literacy skills necessary for the evolving demands of the
+                modern
+                workforce.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="list-box d-flex justify-content-start align-items-center">
+            {{-- <div class="list-icon">
+              <i class="fas fa-sync"></i>
+            </div> --}}
+            <div class="content">
+              <h3> Supportive Learning Environment and Campus Community</h3>
+              <p>Recognizing the importance of a positive and supportive learning environment, Piooneer International
+                University is committed to creating a campus community that nurtures personal and intellectual growth.
+                Our dedicated faculty and staff work collaboratively to foster a sense of belonging, encouraging
+                students to actively participate in various extracurricular activities and community events. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -208,9 +286,9 @@
         <div class="col-lg-3 col-md-6">
           <div class="footer-box about-widget">
             <h2 class="widget-title">About us</h2>
-            <p>Our mission is the advancement of knowledge through research and innovation, teaching and learning, and
-              community service – a holistic process that produces high caliber and ethical leaders, nurture creativity
-              and meet the needs and ambitions of a culturally and internationally diverse range of stakeholders.</p>
+            <p>Pioneer International University is a distinguished institution committed to fostering academic
+              excellence, innovation, and global leadership. With a rich history of providing quality education, we
+              empower students to excel in their chosen fields, preparing them for a dynamic and impactful future.</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">

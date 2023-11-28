@@ -9,29 +9,29 @@
     content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
   <!-- title -->
-  <<title>Pionneer International Unversity</title>
+  <title>Pionneer International Unversity</title>
 
-    <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <!-- owl carousel -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
-    <!-- magnific popup -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <!-- animate css -->
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <!-- mean menu css -->
-    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
-    <!-- main style -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <!-- responsive -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="assets/css/all.min.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <!-- owl carousel -->
+  <link rel="stylesheet" href="assets/css/owl.carousel.css">
+  <!-- magnific popup -->
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <!-- mean menu css -->
+  <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+  <!-- main style -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <!-- responsive -->
+  <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
 
@@ -202,8 +202,9 @@
         <div class="col-lg-3 col-md-6">
           <div class="footer-box about-widget">
             <h2 class="widget-title">About us</h2>
-            <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              laudantium, totam rem aperiam, eaque ipsa quae.</p>
+            <p>Pioneer International University is a distinguished institution committed to fostering academic
+              excellence, innovation, and global leadership. With a rich history of providing quality education, we
+              empower students to excel in their chosen fields, preparing them for a dynamic and impactful future.</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
