@@ -26,6 +26,7 @@ Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 Route::get('/enrollment', [PagesController::class, 'enrollment'])->name('enrollment');
+//Route::get('/edit', [PagesController::class, 'index'])->name('edit');
 
 /* Route::get('/', function () {
     return view('welcome');

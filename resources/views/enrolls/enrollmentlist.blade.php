@@ -39,7 +39,7 @@
         <button class=" flex  btn col-span-1 btn-primary "> ADD New{{-- </button> --}}</a>
     </div>
 
-    <table class=" table-auto border-collapse border-spacing-6 border border-slate-500 text-center   ">
+    <table class=" table-auto border-separate border-spacing-1 border  border-slate-400 text-center   ">
 
       <thead>
         <tr>

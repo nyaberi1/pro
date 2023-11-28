@@ -37,129 +37,31 @@
 
 </head>
 
-<body>
-
-  <!--PreLoader-->
-  <div class="loader">
-    <div class="loader-inner">
-      <div class="circle"></div>
-    </div>
-  </div>
-  <!--PreLoader Ends-->
-
-  <!-- header -->
-  <div class="top-header-area" id="sticker">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-sm-12 text-center">
-          <div class="main-menu-wrap ">
-            <!-- logo -->
-            <div class="site-logo">
-              <a href="index.html">
-                <img src="assets/img/logo.png" alt="">
-              </a>
-            </div>
-            <!-- logo -->
-
-            <!-- menu start -->
-            <nav class="main-menu">
-              @auth
-
-                <ul>
-                  <li class="current-list-item"><a href="/">Home</a>
-
-                  </li>
-                  <li><a href="/about">About</a></li>
-
-                  <li><a href="/contact">Contact</a></li>
-                  <li> <a href="/enrollment">Enrollment</a></li>
-                  {{--  <li>
-                    <div class="header-icons">
-                      <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-                      <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                    </div>
-                  </li> --}}
-
-                  <li>
-                    <form method="POST" action="{{ route('logout') }}">
-                      @csrf
-
-                      <a :href="route('logout')"
-                        onclick="event.preventDefault();
-                              this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                      </a>
-                    </form>
-                  </li>
-
-
-                </ul>
-              @else
-                <ul>
-                  <li class="current-list-item"><a href="/">Home</a>
-
-                  </li>
-                  <li><a href="/about">About</a></li>
-
-                  <li><a href="/contact">Contact</a></li>
-                  <li> <a href="/enrollment">Enrollment</a></li>
-                  <li> <a href="/login">Login</a></li>
-                  <li> <a href="/register">Register</a></li>
-
-                  <li>
-                    <div class="header-icons">
-                      <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-                      <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                    </div>
-                  </li>
-                </ul>
-              @endauth
-
-            </nav>
-            <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-            <div class="mobile-menu"></div>
-            <!-- menu end -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end header -->
-
-  <div class="breadcrumb-section breadcrumb-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mb-5 mb-lg-0">
-          <div class="breadcrumb-text">
-            <h1>Enrollment Form</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<body class="bg-purple-300">
 
 
 
-  <div class="contact-from-section mt-20 mb-10 col-span-2 flex justify-center items-center mx-auto">
-    <div class="container">
-      <div class="row">
+  <div class="contact-from-section mt-20 mb-10 col-span-2 flex justify-center items-center mx-auto bg-white w-full">
+    <div class="container ">
+      <div class="row ">
         <div>
-          <div class="form-title content-center">
-            <h2>Fill the Form</h2>
+          <div class="form-title text-center content-center text-xl">
+            <h2>Edit the Enrollment</h2>
           </div>
 
           <div class="flex flex-row w-full justify-center pt-4 pb-4">
             <div class="card bg-base-500 shadow-xl p-4 px-5 justify-center">
 
 
-              <form action="{{ route('enrolls.store') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('enrolls.update', $enroll->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
+                <fieldset class="border">
 
-                <div class="space-y-12">
-                  <div class="mb-3">
+                  <div class="mb-3  p-4">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="name"
-                      placeholder="Enter Your Name" value="{{ old('name') }}">
+                    <input type="text" name="name" class="form-control border border-gray-300 p-1" id="name"
+                      value="{{ $enroll->name }}">
                     <span class="text-red-500">
                       @error('name')
                         {{ $message }}
@@ -168,22 +70,20 @@
                   </div>
 
 
-                  <div class="mb-3">
+                  <div class="mb-3  p-4">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
-                      placeholder="Enter Your Email" value="{{ old('email') }}">
+                    <input type="email" name="email" class="form-control border border-gray-300 p-1"
+                      id="exampleFormControlInput1" placeholder="Enter your Email" value="{{ $enroll->email }}">
                     <span class="text-red-500">
                       @error('email')
                         {{ $message }}
                       @enderror
                     </span>
                   </div>
-
-
-                  <div class="mb-3">
+                  <div class="mb-3  p-4">
                     <label for="regno" class="form-label">Registration Number</label>
-                    <input type="text" class="form-control" name="regno" id="regno"
-                      placeholder="Enter Your Regestration Number" value="{{ old('regno') }}">
+                    <input type="text" class="form-control border border-gray-300 p-1" name="regno" id="regno"
+                      value="{{ $enroll->regno }}">
                     <span class="text-red-500">
                       @error('regno')
                         {{ $message }}
@@ -191,10 +91,10 @@
                     </span>
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3   p-4">
                     <label for="phone" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" name="phone" id="phone"
-                      placeholder="Enter Your Phone Number" value="{{ old('phone') }}">
+                    <input type="text" class="form-control border border-gray-300  p-1" name="phone" id="phone"
+                      value="{{ $enroll->phone }}">
                     <span class="text-red-500">
                       @error('phone')
                         {{ $message }}
@@ -202,90 +102,85 @@
                     </span>
                   </div>
 
-
-                  <div class="mb-3">
+                  <div class="mb-3  p-4">
                     <label for="idno" class="form-label">ID Number</label>
-                    <input type="text" class="form-control" name="idno" id="idno"
-                      placeholder="Enter Your ID Number" value="{{ old('idno') }}">
+                    <input type="text" class="form-control border border-gray-300  p-1" name="idno" id="idno"
+                      value="{{ $enroll->idno }}">
                     <span class="text-red-500">
                       @error('idno')
                         {{ $message }}
                       @enderror
                     </span>
                   </div>
-
                   <div class="mb-3">
                     <label for="birthdate" class="form-label">Date of Birth</label>
-                    <input type="date" name="birthdate" class="form-control" id="birthdate">
+                    <input type="date" name="birthdate" class="form-control " id="birthdate">
                     @error('birthdate')
                       <span class="text-red-500">{{ $message }}</span>
                     @enderror
                   </div>
-
-
-
-
-                  <div class="mb-3">
+                  <div class="mb-3  p-4">
                     <label for="gender" class="form-label">Gender</label>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="gender" type="checkbox" value="male">
+                      <input class="form-check-input bg-white" name="gender" type="checkbox" value="male"
+                        @if ($enroll->gender == 'male') @checked(true) @endif>
                       <label class="form-check-label">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="gender" value="female">
+                      <input class="form-check-input" type="checkbox" name="gender" value="female"
+                        @if ($enroll->gender == 'female') @checked(true) @endif>
                       <label class="form-check-label" for="inlineCheckbox2">Female</label>
                     </div>
-                    <span class="text-red-500">
+                    <span>
                       @error('gender')
                         {{ $message }}
                       @enderror
                     </span>
                   </div>
 
-
-                  <div class="mb-3">
+                  <div class="mb-3 p-4 ">
                     <label for="country" class="form-label">Country</label>
-                    <input type="text" class="form-control" name="country" id="country"
-                      placeholder="Enter Your Country Name" value="{{ old('country') }}">
+                    <input type="text" class="form-control border border-gray-300  p-1" name="country"
+                      id="country" value="{{ $enroll->country }}">
                     <span class="text-red-500">
                       @error('country')
                         {{ $message }}
                       @enderror
                     </span>
                   </div>
-
-
-
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="county" class="form-label">County</label>
-                    <input type="text" class="form-control" name="county" id="county"
-                      placeholder="Enter Your County Name" value="{{ old('county') }}">
+                    <input type="text" class="form-control  border border-gray-300  p-1" name="county"
+                      id="county" value="{{ $enroll->county }}">
                     <span class="text-red-500">
                       @error('county')
                         {{ $message }}
                       @enderror
                     </span>
                   </div>
-
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="level" class="form-label">Level of Study</label>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="level" value="masters">
+                      <input class="form-check-input" type="radio" name="level" value="masters"
+                        @if ($enroll->level == 'masters') checked @endif>
                       <label class="form-check-label" for="masters">Masters</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="level" value="degree">
+                      <input class="form-check-input" type="radio" name="level" value="degree"
+                        @if ($enroll->level == 'degree') checked @endif>
                       <label class="form-check-label" for="degree">Degree</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="level" value="diploma">
+                      <input class="form-check-input" type="radio" name="level" value="diploma"
+                        @if ($enroll->level == 'diploma') checked @endif>
                       <label class="form-check-label" for="diploma">Diploma</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="level" value="certificate">
+                      <input class="form-check-input" type="radio" name="level" value="certificate"
+                        @if ($enroll->level == 'certificate') checked @endif>
                       <label class="form-check-label" for="certificate">Certificate</label>
                     </div>
-                    <span class="text-red-500">
+                    <span>
                       @error('level')
                         {{ $message }}
                       @enderror
@@ -293,18 +188,16 @@
                   </div>
 
 
-
-
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="faculty" class="form-label">Choose Faculty</label>
                     <select class="form-select" name="faculty">
-                      <option selected>--choose faculty--</option>
-                      <option value="bit">BIT</option>
-                      <option value="bcom">BCOM</option>
-                      <option value="bair">BAIR</option>
-                      <option value="beda">BEDA</option>
+                      <option selected>--chooose faculty---</option>
+                      <option value="bit" @if ($enroll->faculty == 'bit') selected @endif>BIT</option>
+                      <option value="bcom" @if ($enroll->faculty == 'bcom') selected @endif>BCOM</option>
+                      <option value="bair" @if ($enroll->faculty == 'bair') selected @endif>BAIR</option>
+                      <option value="beda" @if ($enroll->faculty == 'beda') selected @endif>BEDA</option>
                     </select>
-                    <span class="text-red-500">
+                    <span>
                       @error('faculty')
                         {{ $message }}
                       @enderror
@@ -312,37 +205,36 @@
                   </div>
 
 
-                  <div class="mb-3">
-                    <label for="course_d" class="form-label">Course Duration</label>
+
+
+                  <div class="mb-3 p-4">
+                    <label for="faculty" class="form-label">Course Duration</label>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="course_d" value="4y">
+                      <input class="form-check-input" name="course_d" type="checkbox" value="4y"
+                        @if ($enroll->course_d == '4y') @checked(true) @endif>
                       <label class="form-check-label" for="4y">4 Years</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="course_d" value="3y">
+                      <input class="form-check-input" type="checkbox" name="course_d" value="3y"
+                        @if ($enroll->course_d == '3y') @checked(true) @endif>
                       <label class="form-check-label" for="3y">3 Years</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="course_d" value="1y">
+                      <input class="form-check-input" type="checkbox" name="course_d" value="1y"
+                        @if ($enroll->course_d == '1y') @checked(true) @endif>
                       <label class="form-check-label" for="1y">1 Year</label>
                     </div>
-                    <span class="text-red-500">
+                    <span>
                       @error('course_d')
                         {{ $message }}
                       @enderror
                     </span>
                   </div>
 
-
-
-
-
-
-
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="yearofenroll" class="form-label">Year of Enrollment</label>
-                    <input type="text" class="form-control" name="yearofenroll"
-                      placeholder="Enter Your Enrollment Year" value="{{ old('yearofenroll') }}">
+                    <input type="text" class="form-control border border-gray-300  p-1" name="yearofenroll"
+                      value="{{ $enroll->yearofenroll }}">
                     <span class="text-red-500">
                       @error('yearofenroll')
                         {{ $message }}
@@ -350,14 +242,9 @@
                     </span>
                   </div>
 
-
-
-
-
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="admletter" class="form-label">Admission Letter</label>
-                    <input class="form-control form-control-lg" name="admletter" type="file"
-                      value="{{ old('admletter') }}">
+                    <input class="form-control form-control-lg" name="admletter" type="file">
                     <span class="text-red-500">
                       @error('admletter')
                         {{ $message }}
@@ -365,10 +252,9 @@
                     </span>
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="passport" class="form-label">Passport</label>
-                    <input class="form-control form-control-lg" name="passport" type="file"
-                      value="{{ old('passport') }}">
+                    <input class="form-control form-control-lg" name="passport" type="file">
                     <span class="text-red-500">
                       @error('passport')
                         {{ $message }}
@@ -377,10 +263,9 @@
                   </div>
 
 
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="resultsslip" class="form-label">KSCE Result Slip</label>
-                    <input class="form-control form-control-lg" name="resultsslip" type="file"
-                      value="{{ old('resultsslip') }}">
+                    <input class="form-control form-control-lg" name="resultsslip" type="file">
                     <span class="text-red-500">
                       @error('resultsslip')
                         {{ $message }}
@@ -391,10 +276,9 @@
 
 
 
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="kcseliving" class="form-label">KSCE Living</label>
-                    <input class="form-control form-control-lg" name="kcseliving" type="file"
-                      value="{{ old('kcseliving') }}">
+                    <input class="form-control form-control-lg" name="kcseliving" type="file">
                     <span class="text-red-500">
                       @error('kcseliving')
                         {{ $message }}
@@ -402,10 +286,9 @@
                     </span>
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="scannedid" class="form-label">Scanned ID</label>
-                    <input class="form-control form-control-lg" name="scannedid" type="file"
-                      value="{{ old('scannedid') }}">
+                    <input class="form-control form-control-lg" name="scannedid" type="file">
                     <span class="text-red-500">
                       @error('scannedid')
                         {{ $message }}
@@ -413,19 +296,23 @@
                     </span>
                   </div>
 
-                  <div class="mb-3">
+                  <div class="mb-3 p-4">
                     <label for="birthcert" class="form-label">BIrth Certificate</label>
-                    <input class="form-control form-control-lg" id="formFileLg" name="birthcert" type="file"
-                      value="{{ old('birthcert') }}">
+                    <input class="form-control form-control-lg" id="formFileLg" name="birthcert" type="file">
                     <span class="text-red-500">
                       @error('birthcert')
                         {{ $message }}
                       @enderror
-                    </span>
                   </div>
 
-                  <input type="submit" class="pt-2 rounded" name="submit" id="submit">
-                </div>
+                  <div class="p-4">
+                    <button class="bg-blue-700 hover:bg-blue-500 p-4 rounded-xl ">Update</button>
+                  </div>
+                </fieldset>
+
+
+
+              </form>
 
 
             </div>
@@ -441,55 +328,14 @@
   </div>
   </div>
 
+  <nav class->
+
+  </nav>
 
 
 
 
 
-  <!-- footer -->
-  <div class="footer-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="footer-box about-widget">
-            <h2 class="widget-title">About us</h2>
-            <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              laudantium, totam rem aperiam, eaque ipsa quae.</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="footer-box get-in-touch">
-            <h2 class="widget-title">Get in Touch</h2>
-            <ul>
-              <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-              <li>support@fruitkha.com</li>
-              <li>+00 111 222 3333</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="footer-box pages">
-            <h2 class="widget-title">Pages</h2>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="footer-box subscribe">
-            <h2 class="widget-title">Register With Us</h2>
-            <p>Register with our School and have a Chance to Chase Your Dream.</p>
-            <a href="/register">Register now</a>
-
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end footer -->
 
   <!-- copyright -->
   <div class="copyright">
