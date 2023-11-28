@@ -8,6 +8,10 @@
 
   <title>Pioneer International Unversity</title>
 
+  @vite('resources/css/app.css')
+
+
+
 
 
 <body>
@@ -34,7 +38,7 @@
                   <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" id="name"
-                      placeholder="Enter your Name" value="{{ url($enroll->name) }}">
+                      placeholder="Enter your Name" value="{{ $enroll->name }}">
                     <span>
                       @error('name')
                         {{ $message }}
@@ -46,7 +50,7 @@
                   <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
-                      placeholder="Enter your Email" value="{{ url($enroll->email) }}">
+                      placeholder="Enter your Email" value="{{ $enroll->email }}">
                     <span>
                       @error('email')
                         {{ $message }}
@@ -56,7 +60,7 @@
                   <div class="mb-3">
                     <label for="regno" class="form-label">Registration Number</label>
                     <input type="text" class="form-control" name="regno" id="regno"
-                      placeholder="Enter your Name" value="{{ url($enroll->regno) }}">
+                      placeholder="Enter your Name" value="{{ $enroll->regno }}">
                     <span>
                       @error('regno')
                         {{ $message }}
@@ -67,7 +71,7 @@
                   <div class="mb-3">
                     <label for="phone" class="form-label">Phone Number</label>
                     <input type="text" class="form-control" name="phone" id="phone"
-                      placeholder="Enter your Name" value="{{ url($enroll->phone) }}">
+                      placeholder="Enter your Name" value="{{ $enroll->phone }}">
                     <span>
                       @error('phone')
                         {{ $message }}
@@ -78,7 +82,7 @@
                   <div class="mb-3">
                     <label for="idno" class="form-label">ID Number</label>
                     <input type="text" class="form-control" name="idno" id="idno"
-                      placeholder="Enter your Name" value="{{ url($enroll->idno) }}">
+                      placeholder="Enter your Name" value="{{ $enroll->idno }}">
                     <span>
                       @error('idno')
                         {{ $message }}
@@ -88,13 +92,13 @@
                   <div class="mb-3">
                     <label for="gender" class="form-label">Gender</label>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="gender" type="checkbox" value="male"
-                        value="{{ url($enroll->gender) }}">
+                      <input class="form-check-input bg-white" name="gender" type="checkbox" value="male"
+                        @if ($enroll->gender == 'male') @checked(true) @endif>
                       <label class="form-check-label">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="gender" value="female"
-                        value="{{ url($enroll->gender) }}">
+                        @if ($enroll->gender == 'female') @checked(true) @endif>
                       <label class="form-check-label" for="inlineCheckbox2">Female</label>
                     </div>
                     <span>
@@ -107,7 +111,7 @@
                   <div class="mb-3">
                     <label for="country" class="form-label">Country</label>
                     <input type="text" class="form-control" name="country" id="country"
-                      placeholder="Enter your Name" value="{{ url($enroll->country) }}">
+                      placeholder="Enter your Name" value="{{ $enroll->country }}">
                     <span>
                       @error('country')
                         {{ $message }}
@@ -117,7 +121,7 @@
                   <div class="mb-3">
                     <label for="county" class="form-label">County</label>
                     <input type="text" class="form-control" name="county" id="county"
-                      placeholder="Enter your Name" value="{{ url($enroll->county) }}">
+                      placeholder="Enter your Name" value="{{ $enroll->county }}">
                     <span>
                       @error('county')
                         {{ $message }}
@@ -128,23 +132,23 @@
                   <div class="mb-3">
                     <label for="level" class="form-label">Level of Study</label>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="level" type="checkbox" value="master"
-                        value="{{ url($enroll->level) }}">
+                      <input class="form-check-input" name="level" type="checkbox" value="masters"
+                        @if ($enroll->level == 'masters') @checked(true) @endif>
                       <label class="form-check-label" for="masters">Masters</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="level" value="degree"
-                        onclick="onlyOne(this)" value="{{ url($enroll->level) }}">
+                        @if ($enroll->level == 'degree') @checked(true) @endif>
                       <label class="form-check-label" for="degree">Degree</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="level" value="diploma"
-                        onclick="onlyOne(this)" value="{{ url($enroll->level) }}">
+                        @if ($enroll->level == 'diploma') @checked(true) @endif>
                       <label class="form-check-label" for="diploma">Diploma</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="level" value="certificate"
-                        onclick="onlyOne(this)" value="{{ url($enroll->level) }}">
+                        @if ($enroll->level == 'certificate') @checked(true) @endif>
                       <label class="form-check-label" for="certificate">Certificate</label>
                     </div>
                     <span>
@@ -154,26 +158,27 @@
                     </span>
                   </div>
 
+
                   <div class="mb-3">
-                    <label for="faculty" class="form-label">Choose of Faculty</label>
+                    <label for="faculty" class="form-label">Choose Faculty</label>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" name="faculty" type="checkbox" value="bit"
-                        onclick="onlyOne(this)" value="{{ url($enroll->faculty) }}">
+                        @if ($enroll->faculty == 'bit') checked @endif>
                       <label class="form-check-label" for="bit">BIT</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="faculty" value="bcom"
-                        onclick="onlyOne(this)" value="{{ url($enroll->faculty) }}">
+                        @if ($enroll->faculty == 'bcom') checked @endif>
                       <label class="form-check-label" for="bcom">BCOM</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="faculty" value="bair"
-                        onclick="onlyOne(this)" value="{{ url($enroll->faculty) }}">
+                        @if ($enroll->faculty == 'bair') checked @endif>
                       <label class="form-check-label" for="bair">BAIR</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="faculty" value="beda"
-                        onclick="onlyOne(this)" value="{{ url($enroll->faculty) }}">
+                        @if ($enroll->faculty == 'beda') checked @endif>
                       <label class="form-check-label" for="beda">BEDA</label>
                     </div>
                     <span>
@@ -184,21 +189,22 @@
                   </div>
 
 
+
                   <div class="mb-3">
                     <label for="faculty" class="form-label">Course Duration</label>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" name="course_d" type="checkbox" value="4y"
-                        onclick="onlyOne(this)" value="{{ url($enroll->course_d) }}">
+                        @if ($enroll->course_d == '4y') @checked(true) @endif>
                       <label class="form-check-label" for="4y">4 Years</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="course_d" value="3y"
-                        onclick="onlyOne(this)" value="{{ url($enroll->course_d) }}">
+                        @if ($enroll->course_d == '3y') @checked(true) @endif>
                       <label class="form-check-label" for="3y">3 Years</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="checkbox" name="course_d" value="1y"
-                        onclick="onlyOne(this)" value="{{ url($enroll->course_d) }}">
+                        @if ($enroll->course_d == '1y') @checked(true) @endif>
                       <label class="form-check-label" for="1y">1 Year</label>
                     </div>
                     <span>
@@ -211,7 +217,7 @@
                   <div class="mb-3">
                     <label for="yearofenroll" class="form-label">Year of Enrollment</label>
                     <input type="text" class="form-control" name="yearofenroll" placeholder="Enter your Name"
-                      value="{{ url($enroll->yearofenroll) }}">
+                      value="{{ $enroll->yearofenroll }}">
                     <span>
                       @error('yearofenroll')
                         {{ $message }}

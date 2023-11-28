@@ -14,9 +14,9 @@ class EnrollsController extends Controller
     {
 
         $title = 'Enrollment List';
-        $enrolls = Enroll::paginate();
+        $enrolls = Enroll::latest()->paginate(5);
 
-        return view('enrolls.enrollmentlist')->with(compact('title', 'enrolls'));
+        return view('enrolls.enrollmentlist', ['enrolls' => $enrolls])->with(compact('title', 'enrolls'));
     }
     /* public function show(Enroll $enroll)
     {
@@ -30,6 +30,8 @@ class EnrollsController extends Controller
      */
     public function create()
     {
+        $enrolls = Enroll::get();
+
         return view('pages.enrollment')->with(compact('title', 'enrolls'));
     }
 
@@ -52,7 +54,7 @@ class EnrollsController extends Controller
             'course_d' => 'required',
             'yearofenroll' => 'required',
             'admletter' => 'required|file|mimes:pdf,doc,docx|max:2048',
-            'passport' => 'required|file|mimes:pdf,img,png|max:2048',
+            'passport' => 'required|file|mimes:pdf,jpg,png|max:2048',
             'resultsslip' => 'required|file|mimes:pdf,doc,docx|max:2048',
             'kcseliving' => 'required|file|mimes:pdf,doc,docx|max:2048',
             'scannedid' => 'required|file|mimes:pdf,doc,docx|max:2048',
@@ -66,8 +68,6 @@ class EnrollsController extends Controller
         $path = $request->file('birthcert')->store('birth_certificates');
 
         $enroll = Enroll::create($incomingFields)->file_path = $path;
-
-
 
         /*  Enroll::create(
             [
@@ -94,7 +94,7 @@ class EnrollsController extends Controller
 
         ); */
 
-        return redirect()->route('home')->with('messsage', 'You have been enroll!!!');
+        return redirect()->route('enrolls')->with('messsage', 'You have been enroll successfull!!!');
     }
 
     /**
@@ -132,7 +132,7 @@ class EnrollsController extends Controller
             'course_d' => 'required',
             'yearofenroll' => 'required',
             /*        'admletter' => 'required|file|mimes:pdf,doc,docx|max:2048',
-            'passport' => 'required|file|mimes:pdf,img,png|max:2048',
+            'passport' => 'required|file|mimes:pdf,jpg,png|max:2048',
             'resultsslip' => 'required|file|mimes:pdf,doc,docx|max:2048',
             'kcseliving' => 'required|file|mimes:pdf,doc,docx|max:2048',
             'scannedid' => 'required|file|mimes:pdf,doc,docx|max:2048',
@@ -163,7 +163,7 @@ class EnrollsController extends Controller
         $enroll->update($incomingFields);
         $enroll->save();
 
-        return redirect()->route('enrolls', ['enroll' => $enroll])->with('message', 'You have been enroll!!!');
+        return redirect()->route('enrolls', ['enroll' => $enroll])->with('message', 'Enrollment has updated successfully!!');
     }
 
     /**
