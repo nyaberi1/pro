@@ -38,12 +38,11 @@
 <body>
 
   @if (session()->has('message'))
-    <div class="alert alert-success">
+  <div class="alert alert-success">
       {{ session()->get('message') }}
-    </div>
-    <meta http-equiv="refresh" content="5">
-  @endif
-
+  </div>
+  <meta http-equiv="refresh" content="5">
+@endif
 
   <!--PreLoader-->
   <div class="loader">

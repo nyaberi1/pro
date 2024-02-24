@@ -291,19 +291,27 @@
                       @enderror
                     </span>
                   </div>
+                    <div class="mb-3">
+                      <label for="faculty" class="form-label">Choose Your Faculty</label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="faculty" value="bit">
+                        <label class="form-check-label" for="4y">BIT</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="faculty" value="bcom">
+                        <label class="form-check-label" for="3y">BCOM</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="faculty" value="bair">
+                        <label class="form-check-label" for="1y">BAIR</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="faculty" value="beda">
+                        <label class="form-check-label" for="1y">BEDA</label>
+                      </div>
 
 
 
-
-                  <div class="mb-3">
-                    <label for="faculty" class="form-label">Choose Faculty</label>
-                    <select class="form-select" name="faculty">
-                      <option value="default">--Choose your Faculty--</option>
-                      <option value="bit">BIT</option>
-                      <option value="bcom">BCOM</option>
-                      <option value="bair">BAIR</option>
-                      <option value="beda">BEDA</option>
-                    </select>
                     <span class="text-red-500">
                       @error('faculty')
                         {{ $message }}
@@ -424,7 +432,7 @@
                     </span>
                   </div>
 
-                  <input type="submit" class="pt-2 rounded" name="submit" id="submit">
+                  <button type="submit" class="btn btn-primary rounded-btn ">Submit</button>
                 </div>
 
 

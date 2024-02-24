@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/enrolls', [EnrollsController::class, 'index'])->name('enrolls')->middleware('auth');
+//Route::get('/enrolls', [EnrollsController::class, 'index'])->name('enrolls')->middleware('auth');
 Route::post('/enrolls/store', [EnrollsController::class, 'store'])->name('enrolls.store')->middleware('auth');
 Route::get('/enrolls/{enroll}/edit', [EnrollsController::class, 'edit'])->name('enrolls.edit')->middleware('auth');
 Route::put('/enrolls/{enroll}', [EnrollsController::class, 'update'])->name('enrolls.update')->middleware('auth');

@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Admin\Controllers;
+use Illuminate\Support\Facades\Session;
 
 use App\Models\Enroll;
 use Illuminate\Http\Request;
@@ -8,6 +9,24 @@ use Illuminate\Support\Facades\Storage;
 
 class EnrollsController extends Controller
 {
+
+
+
+
+
+
+    public function yourControllerMethod()
+    {
+        // Some logic...
+    
+        // Set success message in session
+        Session::flash('message', 'Your success message.');
+    
+        return view('pages.home');
+    }
+    
+
+
     /**
      * Display a listing of the resource.
      */
