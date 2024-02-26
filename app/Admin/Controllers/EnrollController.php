@@ -101,21 +101,27 @@ class EnrollController extends AdminController
         $form->email('email', __('Email'));
         $form->text('regno', __('Regno'));
         $form->phonenumber('phone', __('Phone'));
-        $form->text('gender', __('Gender'));
+        $form->checkbox('Gender','gender')->options([1 => 'Male', 2 => 'Female']);
         $form->text('idno', __('Idno'));
-        $form->text('birthdate', __('Birthdate'));
+        $form->date('Birthdate','birthdate')->format('d-m-Y');
         $form->text('country', __('Country'));
         $form->text('county', __('County'));
-        $form->text('level', __('Level'));
-        $form->text('faculty', __('Faculty'));
-        $form->text('course_d', __('Course d'));
-        $form->text('yearofenroll', __('Yearofenroll'));
-        $form->text('admletter', __('Admletter'));
-        $form->text('passport', __('Passport'));
-        $form->text('resultsslip', __('Resultsslip'));
-        $form->text('kcseliving', __('Kcseliving'));
-        $form->text('scannedid', __('Scannedid'));
-        $form->text('birthcert', __('Birthcert'));
+
+        $form->radio('Level','level')->options(['1' => ' Master', '2' => ' Degree','3' => ' Diploma', '4' => 'Certificate']);
+        $form->checkbox('Faculty','faculty')->options(['1' => ' BIT', '2' => ' BCOM','3' => ' BAIR', '4' => 'BEDA']);
+        $form->checkbox('Course d','course_d')->options(['1' => ' 4 Years', '2' => ' 3 Years','3' => ' 1 Year']);
+
+
+        //file or image upload
+       
+        $form->file('Yearofenroll', 'yearofenroll')->rules('mimes: pdf, png ,jpg,xlsx');
+        $form->file('Admletter', 'admletter')->rules('mimes: pdf, png ,jpg,xlsx');
+        $form->file('Passport', 'passport')->rules('mimes: pdf, png ,jpg,xlsx');
+        $form->file('Resultsslip', 'resultsslip')->rules('mimes: pdf, png ,jpg,xlsx');
+        $form->file('Kcseliving', 'kcseliving')->rules('mimes: pdf, png ,jpg,xlsx');
+        $form->file('Scannedid', 'scannedid')->rules('mimes: pdf, png ,jpg,xlsx');
+        $form->file('Birthcert', 'birthcert')->rules('mimes: pdf, png ,jpg,xlsx');
+
 
         return $form;
     }

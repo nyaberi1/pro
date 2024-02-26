@@ -78,6 +78,8 @@
 
                   <li><a href="/contact">Contact</a></li>
                   <li> <a href="/enrollment">Enrollment</a></li>
+                  <li> <a href="/admin">Manage</a></li>
+
 
                   <li>
                     <form method="POST" action="{{ route('logout') }}">

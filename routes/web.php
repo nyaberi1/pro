@@ -1,9 +1,11 @@
 <?php
 
+use App\Admin\Controllers\HomeController;
 use App\Http\Controllers\EnrollsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,8 @@ Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 Route::get('/enrollment', [PagesController::class, 'enrollment'])->name('enrollment')->middleware('auth');
+Route::get('/admin', [HomeController::class, 'index'])->name('admin')->middleware('admin');
+
 //Route::get('/edit', [PagesController::class, 'index'])->name('edit');
 
 /* Route::get('/', function () {
@@ -42,4 +46,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
